@@ -4,7 +4,7 @@ Version: 0.0.0.9000
 Authors@R: 
     person("Raphael", "Saldanha", , "raphael.saldanha@icict.fiocruz.br", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0003-0652-8466"))
-Description: Brazilian population estimativas per year, state, municipality, sex and age groups from DataSUS/MS.
+Description: Datasets with yearly (2000 to 2021) Brazilian population estimates from DataSUS/Brazilian Health Ministry, aggregated by state, municipality, sex, and age groups.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
