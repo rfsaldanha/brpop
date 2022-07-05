@@ -4,10 +4,10 @@
 
 There were no ERRORs or WARNINGs. There was 1 NOTE:
 
-    installed size is  7.2Mb
+    installed size is  5.2Mb
     sub-directories of 1Mb or more:
-      data   7.1Mb
+      data   5.1Mb
 
 
 * This package provides datasets about population estimates that are not available for direct use with R in other places. All rda files were checked for maximum compression.
-
+* For this reason I ask for an exemption to permit a 5.2Mb package.
