@@ -28,3 +28,4 @@ vignettes/*.pdf
 .Renviron
 .Rproj.user
 data-raw
+docs
