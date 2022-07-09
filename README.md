@@ -2,6 +2,7 @@
 
 <!-- badges: start -->
 [![CRAN status](https://www.r-pkg.org/badges/version/brpop)](https://CRAN.R-project.org/package=brpop)
+[![](https://cranlogs.r-pkg.org/badges/brpop)](https://cran.r-project.org/package=brpop)
 <!-- badges: end -->
 
 `brpop` is an `R` package that provides yearly (2000 to 2021) Brazilian population estimates from DataSUS/Brazilian Health Ministry, aggregated by state, municipality, sex, and age groups. Those estimates are especially useful for calculating age and sex standardized disease rates.
