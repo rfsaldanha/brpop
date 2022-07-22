@@ -1,6 +1,6 @@
 Package: brpop
 Title: Brazilian Population Estimatives
-Version: 0.1.1
+Version: 0.1.2
 Authors@R: 
     person("Raphael", "Saldanha", , "raphael.saldanha@icict.fiocruz.br", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0003-0652-8466"))
