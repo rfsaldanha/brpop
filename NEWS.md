@@ -1,3 +1,7 @@
+# brpop 0.1.3
+
+* Add functions for male and female population totals.
+
 # brpop 0.1.2
 
 * Add functions for health regions population estimatives.
