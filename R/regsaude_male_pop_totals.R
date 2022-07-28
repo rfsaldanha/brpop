@@ -20,6 +20,7 @@
 
 regsaude_male_pop_totals <- function(){
   res <- regsaude_male_pop() %>%
+    dplyr::filter(age_group != "Total") %>%
     dplyr::group_by(.data$regsaude, .data$year) %>%
     dplyr::summarise(pop = sum(.data$pop, na.rm = TRUE)) %>%
     dplyr::ungroup() %>%

@@ -20,6 +20,7 @@
 
 uf_pop_totals <- function(){
   res <- dplyr::bind_rows(brpop::uf_male_pop, brpop::uf_female_pop) %>%
+    dplyr::filter(age_group != "Total") %>%
     dplyr::group_by(.data$uf, .data$year) %>%
     dplyr::summarise(pop = sum(.data$pop, na.rm = TRUE)) %>%
     dplyr::ungroup() %>%
