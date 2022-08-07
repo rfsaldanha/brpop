@@ -21,7 +21,7 @@
 regsaude_pop_totals <- function(){
 res <- dplyr::bind_rows(regsaude_male_pop(), regsaude_female_pop()) %>%
     dplyr::filter(.data$age_group == "Total") %>%
-    dplyr::arrange(.data$regsaude, .data$year, .data$pop)
+    dplyr::arrange(.data$regsaude, .data$year)
 
   return(res)
 }

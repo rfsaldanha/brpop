@@ -21,7 +21,7 @@
 uf_male_pop_totals <- function(){
 res <- brpop::uf_male_pop %>%
     dplyr::filter(.data$age_group == "Total") %>%
-    dplyr::arrange(.data$uf, .data$year, .data$pop)
+    dplyr::arrange(.data$uf, .data$year)
 
   return(res)
 }

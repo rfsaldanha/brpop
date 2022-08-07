@@ -21,7 +21,7 @@
 mun_male_pop_totals <- function(){
 res <- brpop::mun_male_pop %>%
     dplyr::filter(.data$age_group == "Total") %>%
-    dplyr::arrange(.data$mun, .data$year, .data$pop)
+    dplyr::arrange(.data$mun, .data$year)
 
   return(res)
 }
