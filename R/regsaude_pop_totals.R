@@ -19,16 +19,8 @@
 #' @export
 
 regsaude_pop_totals <- function(){
-
-  cluster <- multidplyr::new_cluster(n = future::availableCores(omit = 1))
-
-  res <- dplyr::bind_rows(regsaude_male_pop(), regsaude_female_pop()) %>%
-    dplyr::filter(.data$age_group != "Total") %>%
-    dplyr::group_by(.data$regsaude, .data$year) %>%
-    multidplyr::partition(cluster) %>%
-    dplyr::summarise(pop = sum(.data$pop, na.rm = TRUE)) %>%
-    dplyr::collect() %>%
-    dplyr::ungroup() %>%
+res <- dplyr::bind_rows(regsaude_male_pop(), regsaude_female_pop()) %>%
+    dplyr::filter(.data$age_group == "Total") %>%
     dplyr::arrange(.data$regsaude, .data$year, .data$pop)
 
   return(res)

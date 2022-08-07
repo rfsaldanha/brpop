@@ -19,16 +19,8 @@
 #' @export
 
 mun_pop_totals <- function(){
-
-  cluster <- multidplyr::new_cluster(n = future::availableCores(omit = 1))
-
   res <- dplyr::bind_rows(brpop::mun_male_pop, brpop::mun_female_pop) %>%
-    dplyr::filter(.data$age_group != "Total") %>%
-    dplyr::group_by(.data$mun, .data$year) %>%
-    multidplyr::partition(cluster) %>%
-    dplyr::summarise(pop = sum(.data$pop, na.rm = TRUE)) %>%
-    dplyr::collect() %>%
-    dplyr::ungroup() %>%
+    dplyr::filter(.data$age_group == "Total") %>%
     dplyr::arrange(.data$mun, .data$year, .data$pop)
 
   return(res)
