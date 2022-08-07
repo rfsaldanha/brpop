@@ -19,10 +19,15 @@
 #' @export
 
 uf_male_pop_totals <- function(){
+
+  cluster <- multidplyr::new_cluster(n = future::availableCores(omit = 1))
+
   res <- brpop::uf_male_pop %>%
     dplyr::filter(age_group != "Total") %>%
     dplyr::group_by(.data$uf, .data$year) %>%
+    multidplyr::partition(cluster) %>%
     dplyr::summarise(pop = sum(.data$pop, na.rm = TRUE)) %>%
+    dplyr::collect() %>%
     dplyr::ungroup() %>%
     dplyr::arrange(.data$uf, .data$year, .data$pop)
 

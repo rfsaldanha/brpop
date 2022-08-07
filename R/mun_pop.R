@@ -21,9 +21,14 @@
 #' @export
 
 mun_pop <- function(){
+
+  cluster <- multidplyr::new_cluster(n = future::availableCores(omit = 1))
+
   res <- dplyr::bind_rows(brpop::mun_male_pop, brpop::mun_female_pop) %>%
     dplyr::group_by(.data$mun, .data$year, .data$age_group) %>%
+    multidplyr::partition(cluster) %>%
     dplyr::summarise(pop = sum(.data$pop, na.rm = TRUE)) %>%
+    dplyr::collect() %>%
     dplyr::ungroup() %>%
     dplyr::arrange(.data$mun, .data$year, .data$age_group, .data$pop)
 

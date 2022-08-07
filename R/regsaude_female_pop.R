@@ -21,9 +21,14 @@
 #' @export
 
 regsaude_female_pop <- function(){
+
+  cluster <- multidplyr::new_cluster(n = future::availableCores(omit = 1))
+
   res <- dplyr::left_join(brpop::mun_female_pop, brpop::mun_reg_saude, by = c("mun" = "cod_mun")) %>%
     dplyr::group_by(regsaude = .data$cod_reg_saude, .data$year, .data$age_group) %>%
+    multidplyr::partition(cluster) %>%
     dplyr::summarise(pop = sum(.data$pop, na.rm = TRUE)) %>%
+    dplyr::collect() %>%
     dplyr::ungroup()
 
   return(res)
