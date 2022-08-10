@@ -1,3 +1,5 @@
+# brpop 0.1.5
+
 # brpop 0.1.4
 
 * Bug correction: remove total records from sum on total functions.
