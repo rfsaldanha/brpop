@@ -26,7 +26,7 @@
     
     <a class="navbar-brand me-2" href="index.html">brpop</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.5</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.6</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -72,19 +72,35 @@
 <div class="section level2">
 <h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
 </h2>
-<p>The package provides a dataset with two files containing population estimates for municipalities by sex and two files with population estimates for states (UFs) by sex.</p>
+<p>The package provides population estimates for municipalities, UF and health regions by sex and age groups.</p>
+<p>The base dataset are population estimates by municipalities and sex.</p>
 <pre class="{r}"><code><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">mun_female_pop</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">mun_male_pop</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">uf_female_pop</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">uf_male_pop</span><span class="op">)</span></span></code></pre>
-<p>The function <code>mun_pop</code> aggregates the municipalities’ estimates by sex, resulting in a tibble with overall population estimates. This function takes no arguments.</p>
-<pre class="{r}"><code><span><span class="fu"><a href="reference/mun_pop.html">mun_pop</a></span><span class="op">(</span><span class="op">)</span></span></code></pre>
-<p>The function <code>mun_sex_pop</code> binds the estimates by sex into a single tibble with a new variable called sex. This function takes no arguments.</p>
-<pre class="{r}"><code><span><span class="fu"><a href="reference/mun_sex_pop.html">mun_sex_pop</a></span><span class="op">(</span><span class="op">)</span></span></code></pre>
-<p>The functions <code>uf_pop</code> and <code>uf_sex_pop</code> work in the same way, providing UF population estimates. Those functions take no arguments.</p>
-<pre class="{r}"><code><span><span class="fu"><a href="reference/uf_pop.html">uf_pop</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="fu"><a href="reference/uf_sex_pop.html">uf_sex_pop</a></span><span class="op">(</span><span class="op">)</span></span></code></pre>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">mun_male_pop</span><span class="op">)</span></span></code></pre>
+<p>The package provides several functions to aggregate those datasets into multiple ways. The functions are provided for municipalities with the prefix <code>mun_</code>, UFs with the prefix <code>uf_</code>, and health regions with the prefix <code>regsaude_</code>. Those function takes no arguments.</p>
+<div class="section level3">
+<h3 id="estimates-by-year-sex-and-age-group">Estimates by year, sex and age group<a class="anchor" aria-label="anchor" href="#estimates-by-year-sex-and-age-group"></a>
+</h3>
+<p>The functions <code>*_sex_pop</code> binds the estimates by sex into a single tibble with a new variable called sex.</p>
+<pre class="{r}"><code><span><span class="fu"><a href="reference/mun_sex_pop.html">mun_sex_pop</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/uf_sex_pop.html">uf_sex_pop</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/regsaude_sex_pop.html">regsaude_sex_pop</a></span><span class="op">(</span><span class="op">)</span></span></code></pre>
+</div>
+<div class="section level3">
+<h3 id="estimates-by-year-and-age-group">Estimates by year and age group<a class="anchor" aria-label="anchor" href="#estimates-by-year-and-age-group"></a>
+</h3>
+<p>The functions <code>*_pop</code> aggregates the municipalities’ estimates by sex, resulting in a tibble with overall population estimates.</p>
+<pre class="{r}"><code><span><span class="fu"><a href="reference/mun_pop.html">mun_pop</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/uf_pop.html">uf_pop</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/regsaude_pop.html">regsaude_pop</a></span><span class="op">(</span><span class="op">)</span></span></code></pre>
+</div>
+<div class="section level3">
+<h3 id="estimates-by-year">Estimates by year<a class="anchor" aria-label="anchor" href="#estimates-by-year"></a>
+</h3>
+<p>The functions <code>*_pop_totals</code> provides the total population estimative.</p>
+<pre class="{r}"><code><span><span class="fu"><a href="reference/mun_pop_totals.html">mun_pop_totals</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/uf_pop_totals.html">uf_pop_totals</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/regsaude_pop_totals.html">regsaude_pop_totals</a></span><span class="op">(</span><span class="op">)</span></span></code></pre>
+</div>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
