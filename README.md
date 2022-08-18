@@ -45,6 +45,7 @@ The functions `*_sex_pop` binds the estimates by sex into a single tibble with a
 ```{r}
 mun_sex_pop()
 uf_sex_pop()
+regsaude_sex_pop()
 ```
 
 ### Estimates by year and age group
