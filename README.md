@@ -27,32 +27,44 @@ library(brpop)
 
 ## Usage
 
-The package provides a dataset with two files containing population estimates for municipalities by sex and two files with population estimates for states (UFs) by sex.
+The package provides population estimates for municipalities, UF and health regions by sex and age groups.
+
+The base dataset are population estimates by municipalities and sex.
 
 ```{r}
 head(mun_female_pop)
 head(mun_male_pop)
-
-head(uf_female_pop)
-head(uf_male_pop)
 ```
 
-The function `mun_pop` aggregates the municipalities' estimates by sex, resulting in a tibble with overall population estimates. This function takes no arguments.
+The package provides several functions to aggregate those datasets into multiple ways. The functions are provided for municipalities with the prefix `mun_`, UFs with the prefix `uf_`, and health regions with the prefix `regsaude_`. Those function takes no arguments.
 
-```{r}
-mun_pop()
-```
+### Estimates by year, sex and age group
 
-The function `mun_sex_pop` binds the estimates by sex into a single tibble with a new variable called sex. This function takes no arguments.
+The functions `*_sex_pop` binds the estimates by sex into a single tibble with a new variable called sex.
 
 ```{r}
 mun_sex_pop()
-```
-
-The functions `uf_pop` and `uf_sex_pop` work in the same way, providing UF population estimates. Those functions take no arguments.
-
-```{r}
-uf_pop()
 uf_sex_pop()
 ```
+
+### Estimates by year and age group
+
+The functions `*_pop` aggregates the municipalities' estimates by sex, resulting in a tibble with overall population estimates. 
+
+```{r}
+mun_pop()
+uf_pop()
+regsaude_pop()
+```
+
+### Estimates by year
+
+The functions `*_pop_totals` provides the total population estimative.
+
+```{r}
+mun_pop_totals()
+uf_pop_totals()
+regsaude_pop_totals()
+```
+
 
