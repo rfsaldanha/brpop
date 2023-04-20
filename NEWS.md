@@ -1,3 +1,5 @@
+# brpop 0.1.7
+
 # brpop 0.1.6
 
 * New function for health region and sex (`regsaude_sex_pop`) and small bug fixes.
