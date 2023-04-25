@@ -21,8 +21,8 @@
 mun_pop_totals <- function(){
   res <- dplyr::bind_rows(brpop::mun_male_pop, brpop::mun_female_pop) %>%
     dplyr::filter(.data$age_group == "Total") %>%
-    dplyr::group_by(mun, year) %>% 
-    dplyr::summarise(pop = sum(pop)) %>%
+    dplyr::group_by(.data$mun, .data$year) %>%
+    dplyr::summarise(pop = sum(.data$pop)) %>%
     dplyr::ungroup() %>%
     dplyr::arrange(.data$mun, .data$year)
 
