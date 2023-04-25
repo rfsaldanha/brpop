@@ -1,3 +1,6 @@
+# brpop 0.2.0
+* Bug correction on `uf_pop_totals` and `regsaude_pop_totals`.
+
 # brpop 0.1.7
 * Bug correction on `mun_pop_totals`. Thanks to @filipemsc!
 
