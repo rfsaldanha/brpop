@@ -2,6 +2,8 @@
 #'
 #' This function provides a tibble containing female population estimates for Brazilian health regions totals from 2000 to 2021.
 #'
+#' @param type character. 'standard' or 'reg_saude_449'
+#'
 #' The estimates were calculated by DataSUS (Brazilian Ministry of Health), manually downloaded from DataSUS website, and organized as a tibble.
 #'
 #' More details about the estimation methodology may be found here: \url{http://tabnet.datasus.gov.br/cgi/POPSVS/NT-POPULACAO-RESIDENTE-2000-2021.PDF}
@@ -18,8 +20,19 @@
 #' @importFrom rlang .data
 #' @export
 
-regsaude_female_pop_totals <- function(){
-res <- regsaude_female_pop() %>%
+regsaude_female_pop_totals <- function(type = "standard"){
+
+  if(!(type %in% c("standard", "reg_saude_449"))){
+    stop("type must be 'standard' or 'reg_saude_449'")
+  }
+
+  if(type == "standard"){
+    res <- regsaude_female_pop()
+  } else if(type == "reg_saude_449"){
+    res <- regsaude_female_pop(type = "reg_saude_449")
+  }
+
+  res <- res %>%
     dplyr::filter(.data$age_group == "Total") %>%
     dplyr::arrange(.data$regsaude, .data$year)
 
