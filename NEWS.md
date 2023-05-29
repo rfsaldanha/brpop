@@ -1,3 +1,7 @@
+# brpop 0.3.0
+* Bug correction on `mun_reg_saude`: remove duplicated records.
+* Add arguments to `reg_saude_*` functions to use the 449 units health region version.
+
 # brpop 0.2.0
 * Bug correction on `uf_pop_totals` and `regsaude_pop_totals`.
 

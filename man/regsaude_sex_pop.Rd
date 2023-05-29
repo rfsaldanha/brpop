@@ -4,7 +4,10 @@
 \alias{regsaude_sex_pop}
 \title{Health regions yearly population estimates per age group and sex}
 \usage{
-regsaude_sex_pop()
+regsaude_sex_pop(type = "standard")
+}
+\arguments{
+\item{type}{character. 'standard' or 'reg_saude_449'}
 }
 \value{
 A tibble.

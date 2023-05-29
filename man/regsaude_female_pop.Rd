@@ -4,27 +4,29 @@
 \alias{regsaude_female_pop}
 \title{Health region yearly female population estimates per age group}
 \format{
-A tibble with 143,748 rows and 4 variables:
+A tibble.
 \describe{
-\item{regsaude}{health region 4 digits code}
+\item{regsaude}{health region with 4 or 5 digits code}
 \item{year}{year of the estimative}
 \item{age_group}{age group}
 \item{pop}{population estimative}
 }
 }
 \usage{
-regsaude_female_pop()
+regsaude_female_pop(type = "standard")
+}
+\arguments{
+\item{type}{character. 'standard' or 'reg_saude_449'
+
+The estimates were calculated by DataSUS (Brazilian Ministry of Health), manually downloaded from DataSUS website, and organized as a tibble.
+
+More details about the estimation methodology may be found here: \url{http://tabnet.datasus.gov.br/cgi/POPSVS/NT-POPULACAO-RESIDENTE-2000-2021.PDF}}
 }
 \value{
 A tibble.
 }
 \description{
 This function provides a tibble containing female population estimates for Brazilian health regions per age groups from 2000 to 2021.
-}
-\details{
-The estimates were calculated by DataSUS (Brazilian Ministry of Health), manually downloaded from DataSUS website, and organized as a tibble.
-
-More details about the estimation methodology may be found here: \url{http://tabnet.datasus.gov.br/cgi/POPSVS/NT-POPULACAO-RESIDENTE-2000-2021.PDF}
 }
 \seealso{
 \link{mun_male_pop}, \link{mun_female_pop}.
