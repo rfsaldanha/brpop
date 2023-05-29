@@ -9,7 +9,7 @@
 #' More details about the estimation methodology may be found here: \url{http://tabnet.datasus.gov.br/cgi/POPSVS/NT-POPULACAO-RESIDENTE-2000-2021.PDF}
 #'
 #' \describe{
-#'   \item{regsaude}{health region 4 digits code}
+#'   \item{regsaude}{health region 4 or 5 digits code}
 #'   \item{year}{year of the estimative}
 #'   \item{pop}{population estimative}
 #' }
