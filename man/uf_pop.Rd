@@ -23,8 +23,6 @@ This function provides a tibble containing population estimates for Brazilian UF
 }
 \details{
 The estimates were calculated by DataSUS (Brazilian Ministry of Health), manually downloaded from DataSUS website, and organized as a tibble.
-
-More details about the estimation methodology may be found here: \url{http://tabnet.datasus.gov.br/cgi/POPSVS/NT-POPULACAO-RESIDENTE-2000-2021.PDF}
 }
 \seealso{
 \link{uf_male_pop}, \link{uf_female_pop}.

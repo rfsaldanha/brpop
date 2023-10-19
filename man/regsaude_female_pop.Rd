@@ -18,9 +18,7 @@ regsaude_female_pop(type = "standard")
 \arguments{
 \item{type}{character. 'standard' or 'reg_saude_449'
 
-The estimates were calculated by DataSUS (Brazilian Ministry of Health), manually downloaded from DataSUS website, and organized as a tibble.
-
-More details about the estimation methodology may be found here: \url{http://tabnet.datasus.gov.br/cgi/POPSVS/NT-POPULACAO-RESIDENTE-2000-2021.PDF}}
+The estimates were calculated by DataSUS (Brazilian Ministry of Health), manually downloaded from DataSUS website, and organized as a tibble.}
 }
 \value{
 A tibble.
