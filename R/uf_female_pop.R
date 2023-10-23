@@ -11,5 +11,4 @@
 #'   \item{age_group}{age group}
 #'   \item{pop}{population estimative}
 #' }
-#' @source \url{http://tabnet.datasus.gov.br/cgi/deftohtm.exe?popsvs/cnv/popbr.def}
 "uf_female_pop"

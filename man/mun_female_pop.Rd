@@ -13,9 +13,6 @@ A tibble with 2,216,016 rows and 4 variables:
 \item{pop}{population estimative}
 }
 }
-\source{
-\url{http://tabnet.datasus.gov.br/cgi/deftohtm.exe?popsvs/cnv/popbr.def}
-}
 \usage{
 mun_female_pop
 }
