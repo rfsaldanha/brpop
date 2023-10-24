@@ -7,7 +7,7 @@
 
 `brpop` is an `R` package that provides yearly (2000 to 2021) Brazilian population estimates from DataSUS/Brazilian Health Ministry, aggregated by state, municipality, sex, and age groups. Those estimates are especially useful for calculating age and sex standardized disease rates.
 
-The population estimates were downloaded manually at the [DataSUS website](http://tabnet.datasus.gov.br/cgi/deftohtm.exe?popsvs/cnv/popbr.def) and converted to `tibbles` for more convenient use. The population estimation method can be accessed [here](http://tabnet.datasus.gov.br/cgi/POPSVS/NT-POPULACAO-RESIDENTE-2000-2021.PDF).
+The population estimates were downloaded manually from DataSUS and converted to `tibbles` for more convenient use.
 
 ## Installation
 
