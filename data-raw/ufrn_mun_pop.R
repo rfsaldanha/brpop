@@ -35,14 +35,14 @@ ufrn_pop <- ufrn_pop_raw |>
   relocate(mun) |>
   mutate(age_group = as.factor(age_group))
 
-ufrn_pop_female <- ufrn_pop |>
+ufrn_mun_female_pop <- ufrn_pop |>
   filter(sexo == "f") |>
   select(-sexo)
 
-usethis::use_data(ufrn_pop_female, overwrite = TRUE, compress = "xz")
+usethis::use_data(ufrn_mun_female_pop, overwrite = TRUE, compress = "xz")
 
-ufrn_pop_male <- ufrn_pop |>
+ufrn_mun_male_pop <- ufrn_pop |>
   filter(sexo == "m") |>
   select(-sexo)
 
-usethis::use_data(ufrn_pop_male, overwrite = TRUE, compress = "xz")
+usethis::use_data(ufrn_mun_male_pop, overwrite = TRUE, compress = "xz")
