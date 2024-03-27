@@ -1,8 +1,8 @@
-#' Municipality yearly male population estimates per age group
+#' Municipality yearly male population estimates per age group from BMH
 #'
 #' A dataset containing male population estimates for Brazilian municipalities per age groups from 2000 to 2021.
 #'
-#' The estimates were calculated by DataSUS (Brazilian Ministry of Health), manually downloaded from DataSUS website, and organized as a tibble.
+#' The estimates were computed by DataSUS (Brazilian Ministry of Health), manually downloaded from DataSUS website, and organized as a tibble.
 #'
 #' @format A tibble with 2,216,016 rows and 4 variables:
 #' \describe{
@@ -11,4 +11,4 @@
 #'   \item{age_group}{age group}
 #'   \item{pop}{population estimative}
 #' }
-"mun_male_pop"
+"bmh_mun_male_pop"
