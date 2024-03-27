@@ -18,10 +18,12 @@ Suggests:
 Config/testthat/edition: 3
 Imports: 
     checkmate,
+    data.table,
     dplyr,
     dtplyr,
     future,
     magrittr,
     multidplyr,
-    rlang
+    rlang,
+    tibble
 URL: https://rfsaldanha.github.io/brpop/
