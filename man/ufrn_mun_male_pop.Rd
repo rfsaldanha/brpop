@@ -15,5 +15,12 @@ A dataset containing male population estimates for Brazilian municipalities per 
 }
 \details{
 The estimates were computed by the LEPP laboratory from the Demography Department/UFRN.
+
+\describe{
+\item{mun}{municipality 6 digits code}
+\item{year}{year of the estimative}
+\item{age_group}{age group}
+\item{pop}{population estimative}
+}
 }
 \keyword{datasets}
