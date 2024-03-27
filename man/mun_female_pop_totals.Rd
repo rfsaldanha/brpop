@@ -4,7 +4,7 @@
 \alias{mun_female_pop_totals}
 \title{Municipality yearly female population estimates totals}
 \usage{
-mun_female_pop_totals()
+mun_female_pop_totals(source = "bmh")
 }
 \arguments{
 \item{source}{character. \code{bmh} for Brazilian Health Ministry estimates, or \code{ufrn} for UFRN-DEM-LEPP estimates.}
