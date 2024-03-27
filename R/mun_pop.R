@@ -1,28 +1,31 @@
 #' Municipality yearly population estimates per age group
 #'
-#' This function provides a tibble containing population estimates for Brazilian municipalities per age groups from 2000 to 2021.
+#' This function provides a tibble containing population estimates for Brazilian municipalities per age groups.
 #'
-#' The estimates were calculated by DataSUS (Brazilian Ministry of Health), manually downloaded from DataSUS website, and organized as a tibble.
-#'
-#' @format A tibble with 2,216,016 rows and 4 variables:
-#' \describe{
-#'   \item{mun}{municipality 6 digits code}
-#'   \item{year}{year of the estimative}
-#'   \item{age_group}{age group}
-#'   \item{pop}{population estimative}
-#' }
+#' @param source character. `bmh` for Brazilian Health Ministry estimates, or `ufrn` for UFRN-DEM-LEPP estimates.
 #'
 #' @returns A tibble.
-#' @seealso [mun_male_pop], [mun_female_pop].
+#' @seealso [bmh_mun_male_pop], [bmh_mun_female_pop], [ufrn_mun_male_pop], [ufrn_mun_female_pop].
 #'
 #' @importFrom rlang .data
 #' @export
 
-mun_pop <- function(){
+mun_pop <- function(source = "bmh"){
+  # Assertions
+  checkmate::assert_choice(x = source, choices = c("bmh", "ufrn"))
+
+  # Estimates source
+  if(source == "bmh"){
+    mun_male_pop <- brpop::bmh_mun_male_pop
+    mun_female_pop <- brpop::bmh_mun_female_pop
+  } else if(source == "ufrn"){
+    mun_male_pop <- brpop::ufrn_mun_male_pop
+    mun_female_pop <- brpop::ufrn_mun_female_pop
+  }
 
   cluster <- multidplyr::new_cluster(n = future::availableCores(omit = 1))
 
-  res <- dplyr::bind_rows(brpop::mun_male_pop, brpop::mun_female_pop) %>%
+  res <- dplyr::bind_rows(mun_male_pop, mun_female_pop) %>%
     dplyr::group_by(.data$mun, .data$year, .data$age_group) %>%
     multidplyr::partition(cluster) %>%
     dplyr::summarise(pop = sum(.data$pop, na.rm = TRUE)) %>%

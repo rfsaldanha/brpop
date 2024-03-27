@@ -3,27 +3,18 @@
 \name{mun_pop}
 \alias{mun_pop}
 \title{Municipality yearly population estimates per age group}
-\format{
-A tibble with 2,216,016 rows and 4 variables:
-\describe{
-\item{mun}{municipality 6 digits code}
-\item{year}{year of the estimative}
-\item{age_group}{age group}
-\item{pop}{population estimative}
-}
-}
 \usage{
-mun_pop()
+mun_pop(source = "bmh")
+}
+\arguments{
+\item{source}{character. \code{bmh} for Brazilian Health Ministry estimates, or \code{ufrn} for UFRN-DEM-LEPP estimates.}
 }
 \value{
 A tibble.
 }
 \description{
-This function provides a tibble containing population estimates for Brazilian municipalities per age groups from 2000 to 2021.
-}
-\details{
-The estimates were calculated by DataSUS (Brazilian Ministry of Health), manually downloaded from DataSUS website, and organized as a tibble.
+This function provides a tibble containing population estimates for Brazilian municipalities per age groups.
 }
 \seealso{
-\link{mun_male_pop}, \link{mun_female_pop}.
+\link{bmh_mun_male_pop}, \link{bmh_mun_female_pop}, \link{ufrn_mun_male_pop}, \link{ufrn_mun_female_pop}.
 }
