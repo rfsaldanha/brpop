@@ -10,7 +10,10 @@
 #' @importFrom rlang .data
 #' @export
 
-mun_female_pop_totals <- function(){
+mun_female_pop_totals <- function(source = "bmh"){
+  # Assertions
+  checkmate::assert_choice(x = source, choices = c("bmh", "ufrn"))
+
   # Estimates source
   if(source == "bmh"){
     mun_female_pop <- brpop::bmh_mun_female_pop

@@ -11,6 +11,9 @@
 #' @export
 
 mun_male_pop_totals <- function(source = "bmh"){
+  # Assertions
+  checkmate::assert_choice(x = source, choices = c("bmh", "ufrn"))
+
   # Estimates source
   if(source == "bmh"){
     mun_male_pop <- brpop::bmh_mun_male_pop
