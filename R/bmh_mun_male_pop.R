@@ -4,7 +4,6 @@
 #'
 #' The estimates were computed by DataSUS (Brazilian Ministry of Health), manually downloaded from DataSUS website, and organized as a tibble.
 #'
-#' @format A tibble with 2,216,016 rows and 4 variables:
 #' \describe{
 #'   \item{mun}{municipality 6 digits code}
 #'   \item{year}{year of the estimative}

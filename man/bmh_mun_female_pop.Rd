@@ -5,13 +5,7 @@
 \alias{bmh_mun_female_pop}
 \title{Municipality yearly female population estimates per age group from BMH}
 \format{
-A tibble with 2,216,016 rows and 4 variables:
-\describe{
-\item{mun}{municipality 6 digits code}
-\item{year}{year of the estimative}
-\item{age_group}{age group}
-\item{pop}{population estimative}
-}
+An object of class \code{spec_tbl_df} (inherits from \code{tbl_df}, \code{tbl}, \code{data.frame}) with 2216016 rows and 4 columns.
 }
 \usage{
 bmh_mun_female_pop
@@ -21,5 +15,12 @@ A dataset containing female population estimates for Brazilian municipalities pe
 }
 \details{
 The estimates were computed by DataSUS (Brazilian Ministry of Health - BMH), manually downloaded from DataSUS website, and organized as a tibble.
+
+\describe{
+\item{mun}{municipality 6 digits code}
+\item{year}{year of the estimative}
+\item{age_group}{age group}
+\item{pop}{population estimative}
+}
 }
 \keyword{datasets}
