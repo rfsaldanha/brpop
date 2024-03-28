@@ -1,16 +1,9 @@
 #' Health region yearly male population estimates totals
 #'
-#' This function provides a tibble containing male population estimates for Brazilian health regions totals from 2000 to 2021.
+#' This function provides a tibble containing male population estimates for Brazilian health regions totals.
 #'
 #' @param type character. 'standard' or 'reg_saude_449'
-#'
-#' The estimates were calculated by DataSUS (Brazilian Ministry of Health), manually downloaded from DataSUS website, and organized as a tibble.
-#'
-#' \describe{
-#'   \item{regsaude}{health region 4 or 5 digits code}
-#'   \item{year}{year of the estimative}
-#'   \item{pop}{population estimative}
-#' }
+#' @param source character. `bmh` for Brazilian Health Ministry estimates, or `ufrn` for UFRN-DEM-LEPP estimates.
 #'
 #' @returns A tibble.
 #' @seealso [regsaude_male_pop].
@@ -18,16 +11,15 @@
 #' @importFrom rlang .data
 #' @export
 
-regsaude_male_pop_totals <- function(type = "standard"){
-
-  if(!(type %in% c("standard", "reg_saude_449"))){
-    stop("type must be 'standard' or 'reg_saude_449'")
-  }
+regsaude_male_pop_totals <- function(type = "standard", source = "bmh"){
+  # Assertions
+  checkmate::assert_choice(x = type, choices = c("standard", "reg_saude_449"))
+  checkmate::assert_choice(x = source, choices = c("bmh", "ufrn"))
 
   if(type == "standard"){
-    res <- regsaude_male_pop()
+    res <- regsaude_male_pop(source = source)
   } else if(type == "reg_saude_449"){
-    res <- regsaude_male_pop(type = "reg_saude_449")
+    res <- regsaude_male_pop(type = "reg_saude_449", source = source)
   }
 
   res <- res %>%
