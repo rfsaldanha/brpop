@@ -4,14 +4,17 @@
 \alias{uf_sex_pop}
 \title{UF yearly population estimates per age group and sex}
 \usage{
-uf_sex_pop()
+uf_sex_pop(source = "bmh")
+}
+\arguments{
+\item{source}{character. \code{bmh} for Brazilian Health Ministry estimates, or \code{ufrn} for UFRN-DEM-LEPP estimates.}
 }
 \value{
 A tibble.
 }
 \description{
-This function binds UF male and female datasets (\code{uf_male_pop} and \code{uf_female_pop}) and includes a new variable called 'sex'.
+This function binds municipality male and female estimates and includes a new variable called 'sex'.
 }
 \seealso{
-\link{uf_male_pop}, \link{uf_female_pop}.
+\link{bmh_mun_male_pop}, \link{bmh_mun_female_pop}, \link{ufrn_mun_male_pop}, \link{ufrn_mun_female_pop}.
 }
