@@ -7,7 +7,7 @@
 mun_pop(source = "bmh")
 }
 \arguments{
-\item{source}{character. \code{bmh} for Brazilian Health Ministry estimates, or \code{ufrn} for UFRN-DEM-LEPP estimates.}
+\item{source}{character. \code{bmh} for Brazilian Health Ministry estimates, \code{ufrn} for UFRN-DEM-LEPP estimates, \code{avg} for an average between both.}
 }
 \value{
 A tibble.
