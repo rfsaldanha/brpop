@@ -4,10 +4,12 @@
 \alias{regsaude_sex_pop}
 \title{Health regions yearly population estimates per age group and sex}
 \usage{
-regsaude_sex_pop(type = "standard")
+regsaude_sex_pop(type = "standard", source = "bmh")
 }
 \arguments{
 \item{type}{character. 'standard' or 'reg_saude_449'}
+
+\item{source}{character. \code{bmh} for Brazilian Health Ministry estimates, or \code{ufrn} for UFRN-DEM-LEPP estimates.}
 }
 \value{
 A tibble.
@@ -16,5 +18,5 @@ A tibble.
 This function binds UF male and female datasets (\code{uf_male_pop} and \code{uf_female_pop}), aggregates estimatives by health regions and includes a new variable called 'sex'.
 }
 \seealso{
-\link{uf_male_pop}, \link{uf_female_pop}.
+\link{regsaude_male_pop}, \link{regsaude_female_pop}.
 }
