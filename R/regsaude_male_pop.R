@@ -6,7 +6,7 @@
 #' @param source character. `bmh` for Brazilian Health Ministry estimates, or `ufrn` for UFRN-DEM-LEPP estimates.
 #'
 #' @returns A tibble.
-#' @seealso [bmh_mun_male_pop], [bmh_mun_female_pop], [ufrn_mun_male_pop], [ufrn_mun_female_pop].
+#' @seealso [bmh_mun_male_pop], [ufrn_mun_male_pop].
 #'
 #' @importFrom rlang .data
 #' @export

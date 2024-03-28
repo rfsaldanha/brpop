@@ -18,5 +18,5 @@ A tibble.
 This function provides a tibble containing male population estimates for Brazilian health regions per age groups.
 }
 \seealso{
-\link{bmh_mun_male_pop}, \link{bmh_mun_female_pop}, \link{ufrn_mun_male_pop}, \link{ufrn_mun_female_pop}.
+\link{bmh_mun_male_pop}, \link{ufrn_mun_male_pop}.
 }
