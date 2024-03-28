@@ -1,28 +1,37 @@
 #' UF yearly population estimates totals
 #'
-#' This function provides a tibble containing population estimates for Brazilian UFs ("Unidades Federativas") totals from 2000 to 2021.
+#' This function provides a tibble containing population estimates for Brazilian UFs ("Unidades Federativas") totals.
 #'
-#' The estimates were calculated by DataSUS (Brazilian Ministry of Health), manually downloaded from DataSUS website, and organized as a tibble.
-#'
-#' \describe{
-#'   \item{uf}{UF 2 digits code}
-#'   \item{year}{year of the estimative}
-#'   \item{pop}{population estimative}
-#' }
+#' @param source character. `bmh` for Brazilian Health Ministry estimates, or `ufrn` for UFRN-DEM-LEPP estimates.
 #'
 #' @returns A tibble.
-#' @seealso [uf_male_pop], [uf_female_pop].
+#' @seealso [bmh_mun_male_pop], [bmh_mun_female_pop], [ufrn_mun_male_pop], [ufrn_mun_female_pop].
 #'
 #' @importFrom rlang .data
 #' @export
 
-uf_pop_totals <- function(){
-res <- dplyr::bind_rows(brpop::uf_male_pop, brpop::uf_female_pop) %>%
+uf_pop_totals <- function(source = "bmh"){
+  # Assertions
+  checkmate::assert_choice(x = source, choices = c("bmh", "ufrn"))
+
+  # Estimates source
+  if(source == "bmh"){
+    mun_male_pop <- brpop::bmh_mun_male_pop
+    mun_female_pop <- brpop::bmh_mun_female_pop
+  } else if(source == "ufrn"){
+    mun_male_pop <- brpop::ufrn_mun_male_pop
+    mun_female_pop <- brpop::ufrn_mun_female_pop
+  }
+
+  res <- dplyr::bind_rows(mun_male_pop, mun_female_pop) %>%
     dplyr::filter(.data$age_group == "Total") %>%
+    dplyr::mutate(uf = substr(.data$mun, 0, 2)) %>%
+    dtplyr::lazy_dt() %>%
     dplyr::group_by(.data$uf, .data$year) %>%
-    dplyr::summarise(pop = sum(.data$pop)) %>%
+    dplyr::summarise(pop = sum(.data$pop, na.rm = TRUE)) %>%
     dplyr::ungroup() %>%
-    dplyr::arrange(.data$uf, .data$year)
+    dplyr::arrange(.data$uf, .data$year, .data$pop) %>%
+    tibble::as_tibble()
 
   return(res)
 }
