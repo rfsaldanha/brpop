@@ -2,7 +2,7 @@
 #'
 #' This function provides a tibble containing population estimates for Brazilian municipalities per age groups.
 #'
-#' @param source character. `bmh` for Brazilian Health Ministry estimates, or `ufrn` for UFRN-DEM-LEPP estimates.
+#' @param source character. `bmh` for Brazilian Health Ministry estimates, `ufrn` for UFRN-DEM-LEPP estimates, `avg` for an average between both.
 #'
 #' @returns A tibble.
 #' @seealso [bmh_mun_male_pop], [bmh_mun_female_pop], [ufrn_mun_male_pop], [ufrn_mun_female_pop].
@@ -12,7 +12,7 @@
 
 mun_pop <- function(source = "bmh"){
   # Assertions
-  checkmate::assert_choice(x = source, choices = c("bmh", "ufrn"))
+  checkmate::assert_choice(x = source, choices = c("bmh", "ufrn", "avg"))
 
   # Estimates source
   if(source == "bmh"){
@@ -21,6 +21,9 @@ mun_pop <- function(source = "bmh"){
   } else if(source == "ufrn"){
     mun_male_pop <- brpop::ufrn_mun_male_pop
     mun_female_pop <- brpop::ufrn_mun_female_pop
+  } else if(source == "avg"){
+    mun_male_pop <- avg_mun_pop(sex = "male")
+    mun_female_pop <- avg_mun_pop(sex = "female")
   }
 
   res <- dplyr::bind_rows(mun_male_pop, mun_female_pop) %>%
