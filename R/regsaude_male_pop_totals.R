@@ -16,13 +16,7 @@ regsaude_male_pop_totals <- function(type = "standard", source = "bmh"){
   checkmate::assert_choice(x = type, choices = c("standard", "reg_saude_449"))
   checkmate::assert_choice(x = source, choices = c("bmh", "ufrn"))
 
-  if(type == "standard"){
-    res <- regsaude_male_pop(source = source)
-  } else if(type == "reg_saude_449"){
-    res <- regsaude_male_pop(type = "reg_saude_449", source = source)
-  }
-
-  res <- res %>%
+  res <- regsaude_male_pop(type = type, source = source) %>%
     dplyr::filter(.data$age_group == "Total") %>%
     dplyr::arrange(.data$regsaude, .data$year)
 

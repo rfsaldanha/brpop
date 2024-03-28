@@ -16,15 +16,9 @@ regsaude_pop_totals <- function(type = "standard", source = "bmh"){
   checkmate::assert_choice(x = type, choices = c("standard", "reg_saude_449"))
   checkmate::assert_choice(x = source, choices = c("bmh", "ufrn"))
 
-  if(type == "standard"){
-    res <- dplyr::bind_rows(regsaude_male_pop_totals(source = source),
-                            regsaude_female_pop_totals(source = source))
-  } else if(type == "reg_saude_449"){
-    res <- dplyr::bind_rows(regsaude_male_pop_totals(type = "reg_saude_449", source = source),
-                            regsaude_female_pop_totals(type = "reg_saude_449", source = source))
-  }
-
-  res <- dtplyr::lazy_dt(x = res)  %>%
+  res <- dplyr::bind_rows(regsaude_male_pop_totals(type = type, source = source),
+                          regsaude_female_pop_totals(type = type, source = source)) %>%
+    dtplyr::lazy_dt() %>%
     dplyr::group_by(.data$regsaude, .data$year) %>%
     dplyr::summarise(pop = sum(.data$pop)) %>%
     dplyr::ungroup() %>%
