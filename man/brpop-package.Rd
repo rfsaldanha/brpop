@@ -6,7 +6,7 @@
 \alias{brpop-package}
 \title{brpop: Brazilian Population Estimatives}
 \description{
-Datasets with yearly (2000 to 2021) Brazilian population estimates from DataSUS/Brazilian Health Ministry, aggregated by state, municipality, sex, and age groups. The data in this package is manually downloaded from the DataSUS website and converted to tibbles.
+Datasets with yearly Brazilian population estimates from 'Brazilian Health Ministry' (DataSUS) and 'Universidade Federal do Rio Grande do Norte' (UFRN), aggregated by municipality, state, health region, sex, and age groups. The data in this package was manually downloaded from the DataSUS and UFRN websites and converted to tibbles.
 }
 \seealso{
 Useful links:
