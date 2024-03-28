@@ -1,45 +1,42 @@
 #' Health region yearly female population estimates per age group
 #'
-#' This function provides a tibble containing female population estimates for Brazilian health regions per age groups from 2000 to 2021.
+#' This function provides a tibble containing female population estimates for Brazilian health regions per age groups.
 #'
 #' @param type character. 'standard' or 'reg_saude_449'
-#'
-#' The estimates were calculated by DataSUS (Brazilian Ministry of Health), manually downloaded from DataSUS website, and organized as a tibble.
-#'
-#' @format A tibble.
-#' \describe{
-#'   \item{regsaude}{health region with 4 or 5 digits code}
-#'   \item{year}{year of the estimative}
-#'   \item{age_group}{age group}
-#'   \item{pop}{population estimative}
-#' }
+#' @param source character. `bmh` for Brazilian Health Ministry estimates, or `ufrn` for UFRN-DEM-LEPP estimates.
 #'
 #' @returns A tibble.
-#' @seealso [mun_male_pop], [mun_female_pop].
+#' @seealso [bmh_mun_female_pop], [ufrn_mun_female_pop].
 #'
 #' @importFrom rlang .data
 #' @export
 
-regsaude_female_pop <- function(type = "standard"){
+regsaude_female_pop <- function(type = "standard", source = "bmh"){
+  # Assertions
+  checkmate::assert_choice(x = type, choices = c("standard", "reg_saude_449"))
+  checkmate::assert_choice(x = source, choices = c("bmh", "ufrn"))
 
-  if(!(type %in% c("standard", "reg_saude_449"))){
-    stop("type must be 'standard' or 'reg_saude_449'")
+  # Estimates source
+  if(source == "bmh"){
+    mun_female_pop <- brpop::bmh_mun_female_pop
+  } else if(source == "ufrn"){
+    mun_female_pop <- brpop::ufrn_mun_female_pop %>%
+      dplyr::mutate(mun = as.numeric(substr(.data$mun, 0, 6)))
   }
 
   cluster <- multidplyr::new_cluster(n = future::availableCores(omit = 1))
 
   if(type == "standard"){
-    res <- dplyr::left_join(brpop::mun_female_pop, brpop::mun_reg_saude, by = c("mun" = "cod_mun"))
+    res <- dplyr::left_join(mun_female_pop, brpop::mun_reg_saude, by = c("mun" = "cod_mun"))
   } else if(type == "reg_saude_449"){
-    res <- dplyr::left_join(brpop::mun_female_pop, brpop::mun_reg_saude_449, by = c("mun" = "cod_mun"))
+    res <- dplyr::left_join(mun_female_pop, brpop::mun_reg_saude_449, by = c("mun" = "cod_mun"))
   }
 
-  res <- res %>%
+  res <- dtplyr::lazy_dt(x = res) %>%
     dplyr::group_by(regsaude = .data$cod_reg_saude, .data$year, .data$age_group) %>%
-    multidplyr::partition(cluster) %>%
     dplyr::summarise(pop = sum(.data$pop, na.rm = TRUE)) %>%
-    dplyr::collect() %>%
-    dplyr::ungroup()
+    dplyr::ungroup() %>%
+    tibble::as_tibble()
 
   return(res)
 }
