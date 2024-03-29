@@ -21,8 +21,11 @@ mun_ufrn <- mun_pop_totals(source = "ufrn") |>
   mutate(source = "ufrn") |>
   mutate(mun = as.numeric(substr(mun, 0, 6)))
 
-bind_rows(mun_ms, mun_ufrn) |>
-  filter(mun == 310620) |>
+mun_avg <- mun_pop_totals(source = "avg") |>
+  mutate(source = "avg")
+
+bind_rows(mun_ms, mun_ufrn, mun_avg) |>
+  filter(mun == 410690) |>
   ggplot(aes(x = year, y = pop, color = source, group = source)) +
   geom_line(alpha = .5)
 
