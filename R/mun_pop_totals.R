@@ -12,7 +12,7 @@
 
 mun_pop_totals <- function(source = "bmh"){
   # Assertions
-  checkmate::assert_choice(x = source, choices = c("bmh", "ufrn"))
+  checkmate::assert_choice(x = source, choices = c("bmh", "ufrn", "avg"))
 
   # Estimates source
   if(source == "bmh"){
@@ -21,6 +21,9 @@ mun_pop_totals <- function(source = "bmh"){
   } else if(source == "ufrn"){
     mun_male_pop <- brpop::ufrn_mun_male_pop
     mun_female_pop <- brpop::ufrn_mun_female_pop
+  } else if(source == "avg"){
+    mun_male_pop <- avg_mun_pop(sex = "male")
+    mun_female_pop <- avg_mun_pop(sex = "female")
   }
 
   res <- dplyr::bind_rows(mun_male_pop, mun_female_pop) %>%
