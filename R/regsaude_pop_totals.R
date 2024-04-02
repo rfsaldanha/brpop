@@ -20,10 +20,10 @@ regsaude_pop_totals <- function(type = "standard", source = "datasus"){
     res <- dplyr::bind_rows(regsaude_male_pop_totals(type = type, source = source),
                           regsaude_female_pop_totals(type = type, source = source)) %>%
       dtplyr::lazy_dt() %>%
-      dplyr::group_by(.data$regsaude, .data$year) %>%
+      dplyr::group_by(.data$codi_reg_saude, .data$year) %>%
       dplyr::summarise(pop = sum(.data$pop)) %>%
       dplyr::ungroup() %>%
-      dplyr::arrange(.data$regsaude, .data$year) %>%
+      dplyr::arrange(.data$codi_reg_saude, .data$year) %>%
       tibble::as_tibble()
   } else if(source == "ibge"){
     if(type == "standard"){

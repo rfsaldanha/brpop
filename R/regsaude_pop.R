@@ -19,7 +19,7 @@ regsaude_pop <- function(type = "standard", source = "datasus"){
   res <- dplyr::bind_rows(regsaude_male_pop(type = type, source = source),
                           regsaude_female_pop(type = type, source = source)) %>%
     dtplyr::lazy_dt() %>%
-    dplyr::group_by(.data$regsaude, .data$year, .data$age_group) %>%
+    dplyr::group_by(.data$codi_reg_saude, .data$year, .data$age_group) %>%
     dplyr::summarise(pop = sum(.data$pop, na.rm = TRUE)) %>%
     dplyr::collect() %>%
     dplyr::arrange(.data$codi_reg_saude, .data$year, .data$age_group) %>%
