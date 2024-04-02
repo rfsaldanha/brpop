@@ -25,10 +25,9 @@ Population data for the year of 2007 was obtained from Population Inquiry, SIDRA
 Population data for the years of 2001 to 2006, 2008, 2009, 2011 to 2021 were obtained from Population Inquiry, SIDRA table 6579 (\url{https://sidra.ibge.gov.br/Tabela/6579}).
 
 \describe{
-\item{mun}{municipality 6 digits code}
-\item{year}{year of the estimative}
-\item{age_group}{age group}
-\item{pop}{population estimative}
+\item{mun}{municipality 7 digits code}
+\item{year}{year}
+\item{pop}{population}
 }
 }
 \keyword{datasets}
