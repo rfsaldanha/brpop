@@ -10,7 +10,7 @@
 #' @importFrom rlang .data
 #' @export
 
-mun_pop <- function(source = "datasus"){
+mun_pop_age <- function(source = "datasus"){
   # Assertions
   checkmate::assert_choice(x = source, choices = c("datasus", "ufrn", "avg"))
 

@@ -11,7 +11,7 @@
 #' @importFrom rlang .data
 #' @export
 
-regsaude_pop <- function(type = "standard", source = "datasus"){
+regsaude_pop_age <- function(type = "standard", source = "datasus"){
   # Assertions
   checkmate::assert_choice(x = type, choices = c("standard", "reg_saude_449"))
   checkmate::assert_choice(x = source, choices = c("datasus", "ufrn"))
