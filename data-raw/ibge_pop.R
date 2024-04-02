@@ -28,4 +28,4 @@ ibge_pop <- full_join(tab202, tab793, by = "code_muni") |>
   pivot_longer(cols = 2:24, names_to = "year", values_to = "pop") |>
   mutate(year = as.numeric(year))
 
-usethis::use_data(ibge_pop, overwrite = TRUE)
+usethis::use_data(ibge_pop, overwrite = TRUE, compress = "xz")
