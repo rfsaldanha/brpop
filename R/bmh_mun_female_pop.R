@@ -1,4 +1,4 @@
-#' Municipality yearly female population estimates per age group from BMH
+#' Municipality yearly female population estimates per age group from 2000 to 2021
 #'
 #' A dataset containing female population estimates for Brazilian municipalities per age groups from 2000 to 2021.
 #'

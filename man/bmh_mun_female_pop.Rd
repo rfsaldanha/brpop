@@ -3,7 +3,7 @@
 \docType{data}
 \name{bmh_mun_female_pop}
 \alias{bmh_mun_female_pop}
-\title{Municipality yearly female population estimates per age group from BMH}
+\title{Municipality yearly female population estimates per age group from 2000 to 2021}
 \format{
 An object of class \code{spec_tbl_df} (inherits from \code{tbl_df}, \code{tbl}, \code{data.frame}) with 2216016 rows and 4 columns.
 }
