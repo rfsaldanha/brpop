@@ -4,3 +4,46 @@ template:
   theme: breeze-light
   params:
     ganalytics: G-2M7VLSRDCB
+reference:
+- title: "Datasets"
+  desc: >
+    Datasets available at the package, used on the functions.
+  contents:
+  - datasus_mun_female_pop
+  - datasus_mun_male_pop
+  - ibge_pop
+  - mun_reg_saude_449
+  - mun_reg_saude
+  - ufrn_mun_female_pop
+  - ufrn_mun_male_pop
+- title: "Totals"
+  desc: >
+    Functions to return the total population per year and geographical unit.
+  contents:
+  - mun_pop_totals
+  - regsaude_pop_totals
+  - uf_pop_totals
+- title: "Totals by sex"
+  desc: >
+    Functions to return the total population per year, geographical unit and sex.
+  contents:
+  - mun_female_pop_totals
+  - mun_male_pop_totals()
+  - regsaude_female_pop_totals
+  - regsaude_male_pop_totals
+  - uf_female_pop_totals
+  - uf_male_pop_totals
+- title: "Totals by age group"
+  desc: >
+    Functions to return the total population per year, geographical unit and age group.
+  contents:
+  - mun_pop_age
+  - regsaude_pop_age
+  - uf_pop_age
+  - title: "Totals by sex and age group"
+  desc: >
+    Functions to return the total population per year, geographical unit, sex and age group.
+  contents:
+  - mun_sex_pop
+  - regsaude_sex_pop
+  - uf_sex_pop
