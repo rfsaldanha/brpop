@@ -24,8 +24,6 @@ regsaude_female_pop <- function(type = "standard", source = "datasus"){
       dplyr::mutate(mun = as.numeric(substr(.data$mun, 0, 6)))
   }
 
-  cluster <- multidplyr::new_cluster(n = future::availableCores(omit = 1))
-
   if(type == "standard"){
     res <- dplyr::left_join(mun_female_pop, brpop::mun_reg_saude, by = c("mun" = "cod_mun"))
   } else if(type == "reg_saude_449"){
