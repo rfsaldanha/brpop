@@ -27,10 +27,10 @@ mun_pop_totals <- function(source = "datasus"){
     res <- dplyr::bind_rows(mun_male_pop, mun_female_pop) %>%
       dplyr::filter(.data$age_group == "Total") %>%
       dtplyr::lazy_dt() %>%
-      dplyr::group_by(.data$mun, .data$year) %>%
+      dplyr::group_by(.data$code_muni, .data$year) %>%
       dplyr::summarise(pop = sum(.data$pop)) %>%
       dplyr::ungroup() %>%
-      dplyr::arrange(.data$mun, .data$year) %>%
+      dplyr::arrange(.data$code_muni, .data$year) %>%
       tibble::as_tibble()
   } else if(source == "ibge"){
     res <- brpop::ibge_pop

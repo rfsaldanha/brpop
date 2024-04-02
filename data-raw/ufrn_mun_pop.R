@@ -6,7 +6,7 @@ ufrn_pop_raw <- readxl::read_xlsx(path = "data-raw/ufrn-dem/ProjMunic-2010_2030.
 
 ufrn_pop <- ufrn_pop_raw |>
   janitor::clean_names() |>
-  select(-a_rmaior, -nome_munic, mun = armenor, year = ano) |>
+  select(-a_rmaior, -nome_munic, code_muni = armenor, year = ano) |>
   pivot_longer(cols = 4:23) |>
   rename(age_group = name, pop = value) |>
   mutate(age_group = case_match(
@@ -32,7 +32,7 @@ ufrn_pop <- ufrn_pop_raw |>
     "x90" ~ "From 90 years or more",
     "total" ~ "Total"
   )) |>
-  relocate(mun) |>
+  relocate(code_muni) |>
   mutate(age_group = as.factor(age_group))
 
 ufrn_mun_female_pop <- ufrn_pop |>

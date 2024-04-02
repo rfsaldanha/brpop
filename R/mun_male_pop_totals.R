@@ -23,7 +23,7 @@ mun_male_pop_totals <- function(source = "datasus"){
 
   res <- mun_male_pop %>%
     dplyr::filter(.data$age_group == "Total") %>%
-    dplyr::arrange(.data$mun, .data$year)
+    dplyr::arrange(.data$code_muni, .data$year)
 
   return(res)
 }

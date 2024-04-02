@@ -26,7 +26,7 @@ uf_pop_totals <- function(source = "datasus"){
   if(source == "datasus" | source == "ufrn"){
     res <- dplyr::bind_rows(mun_male_pop, mun_female_pop) %>%
       dplyr::filter(.data$age_group == "Total") %>%
-      dplyr::mutate(uf = substr(.data$mun, 0, 2)) %>%
+      dplyr::mutate(uf = substr(.data$code_muni, 0, 2)) %>%
       dtplyr::lazy_dt() %>%
       dplyr::group_by(.data$uf, .data$year) %>%
       dplyr::summarise(pop = sum(.data$pop, na.rm = TRUE)) %>%

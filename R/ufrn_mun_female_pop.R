@@ -5,7 +5,7 @@
 #' The estimates were computed by the LEPP laboratory from the Demography Department/UFRN.
 #'
 #' \describe{
-#'   \item{mun}{municipality 6 digits code}
+#'   \item{code_muni}{municipality 6 digits code}
 #'   \item{year}{year of the estimative}
 #'   \item{age_group}{age group}
 #'   \item{pop}{population estimative}

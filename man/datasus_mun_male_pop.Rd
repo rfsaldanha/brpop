@@ -17,7 +17,7 @@ A dataset containing male population estimates for Brazilian municipalities per 
 The estimates were computed by DataSUS (Brazilian Ministry of Health), manually downloaded from DataSUS website, and organized as a tibble.
 
 \describe{
-\item{mun}{municipality 6 digits code}
+\item{code_muni}{municipality 6 digits code}
 \item{year}{year of the estimative}
 \item{age_group}{age group}
 \item{pop}{population estimative}

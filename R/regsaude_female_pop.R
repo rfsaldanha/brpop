@@ -21,13 +21,13 @@ regsaude_female_pop <- function(type = "standard", source = "datasus"){
     mun_female_pop <- brpop::datasus_mun_female_pop
   } else if(source == "ufrn"){
     mun_female_pop <- brpop::ufrn_mun_female_pop %>%
-      dplyr::mutate(mun = as.numeric(substr(.data$mun, 0, 6)))
+      dplyr::mutate(code_muni = as.numeric(substr(.data$code_muni, 0, 6)))
   }
 
   if(type == "standard"){
-    res <- dplyr::left_join(mun_female_pop, brpop::mun_reg_saude, by = c("mun" = "cod_mun"))
+    res <- dplyr::left_join(mun_female_pop, brpop::mun_reg_saude, by = "code_muni")
   } else if(type == "reg_saude_449"){
-    res <- dplyr::left_join(mun_female_pop, brpop::mun_reg_saude_449, by = c("mun" = "cod_mun"))
+    res <- dplyr::left_join(mun_female_pop, brpop::mun_reg_saude_449, by = "code_muni")
   }
 
   res <- dtplyr::lazy_dt(x = res) %>%

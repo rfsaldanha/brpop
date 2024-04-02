@@ -25,10 +25,10 @@ mun_pop <- function(source = "datasus"){
 
   res <- dplyr::bind_rows(mun_male_pop, mun_female_pop) %>%
     dtplyr::lazy_dt() %>%
-    dplyr::group_by(.data$mun, .data$year, .data$age_group) %>%
+    dplyr::group_by(.data$code_muni, .data$year, .data$age_group) %>%
     dplyr::summarise(pop = sum(.data$pop, na.rm = TRUE)) %>%
     dplyr::ungroup() %>%
-    dplyr::arrange(.data$mun, .data$year, .data$age_group, .data$pop) %>%
+    dplyr::arrange(.data$code_muni, .data$year, .data$age_group, .data$pop) %>%
     tibble::as_tibble()
 
   return(res)
