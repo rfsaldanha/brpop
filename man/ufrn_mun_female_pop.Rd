@@ -3,7 +3,7 @@
 \docType{data}
 \name{ufrn_mun_female_pop}
 \alias{ufrn_mun_female_pop}
-\title{Municipality yearly female population estimates per age group from UFRN-DEM-LEPP}
+\title{Municipality yearly female population estimates per age group, from 2010 to 2030}
 \format{
 An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 2339400 rows and 4 columns.
 }
