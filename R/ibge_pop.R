@@ -1,4 +1,4 @@
-#' Municipality population from IBGE estimates, Census and population inquiries
+#' Municipality population from IBGE estimates, Census and population inquiries from 2000 to 2022
 #'
 #' A dataset containing total population estimates for Brazilian municipalities from IBGE estimates, Census and population inquiries. This dataset does not contain breakdowns by age groups or sex.
 #'

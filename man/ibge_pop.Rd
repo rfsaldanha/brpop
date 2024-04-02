@@ -3,7 +3,7 @@
 \docType{data}
 \name{ibge_pop}
 \alias{ibge_pop}
-\title{Municipality population from IBGE estimates, Census and population inquiries}
+\title{Municipality population from IBGE estimates, Census and population inquiries from 2000 to 2022}
 \format{
 An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 128133 rows and 3 columns.
 }
