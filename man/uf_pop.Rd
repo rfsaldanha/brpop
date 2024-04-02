@@ -4,10 +4,10 @@
 \alias{uf_pop}
 \title{UF yearly population estimates per age group}
 \usage{
-uf_pop(source = "bmh")
+uf_pop(source = "datasus")
 }
 \arguments{
-\item{source}{character. \code{bmh} for Brazilian Health Ministry estimates, or \code{ufrn} for UFRN-DEM-LEPP estimates.}
+\item{source}{character. \code{datasus} for Brazilian Health Ministry estimates, or \code{ufrn} for UFRN-DEM-LEPP estimates.}
 }
 \value{
 A tibble.
@@ -16,5 +16,5 @@ A tibble.
 This function provides a tibble containing population estimates for Brazilian UFs ("Unidades Federativas") per age groups.
 }
 \seealso{
-\link{bmh_mun_male_pop}, \link{bmh_mun_female_pop}, \link{ufrn_mun_male_pop}, \link{ufrn_mun_female_pop}.
+\link{datasus_mun_male_pop}, \link{datasus_mun_female_pop}, \link{ufrn_mun_male_pop}, \link{ufrn_mun_female_pop}.
 }

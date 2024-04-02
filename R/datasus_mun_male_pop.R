@@ -10,4 +10,4 @@
 #'   \item{age_group}{age group}
 #'   \item{pop}{population estimative}
 #' }
-"bmh_mun_male_pop"
+"datasus_mun_male_pop"

@@ -4,12 +4,12 @@
 \alias{regsaude_female_pop_totals}
 \title{Health region yearly female population estimates totals}
 \usage{
-regsaude_female_pop_totals(type = "standard", source = "bmh")
+regsaude_female_pop_totals(type = "standard", source = "datasus")
 }
 \arguments{
 \item{type}{character. 'standard' or 'reg_saude_449'}
 
-\item{source}{character. \code{bmh} for Brazilian Health Ministry estimates, or \code{ufrn} for UFRN-DEM-LEPP estimates.}
+\item{source}{character. \code{datasus} for Brazilian Health Ministry estimates, or \code{ufrn} for UFRN-DEM-LEPP estimates.}
 }
 \value{
 A tibble.

@@ -4,10 +4,10 @@
 \alias{mun_male_pop_totals}
 \title{Municipality yearly male population estimates totals}
 \usage{
-mun_male_pop_totals(source = "bmh")
+mun_male_pop_totals(source = "datasus")
 }
 \arguments{
-\item{source}{character. \code{bmh} for Brazilian Health Ministry estimates, or \code{ufrn} for UFRN-DEM-LEPP estimates.}
+\item{source}{character. \code{datasus} for Brazilian Health Ministry estimates, or \code{ufrn} for UFRN-DEM-LEPP estimates.}
 }
 \value{
 A tibble.
@@ -16,5 +16,5 @@ A tibble.
 This function provides a tibble containing male population estimates for Brazilian municipalities totals.
 }
 \seealso{
-\link{bmh_mun_male_pop}, \link{ufrn_mun_male_pop}.
+\link{datasus_mun_male_pop}, \link{ufrn_mun_male_pop}.
 }

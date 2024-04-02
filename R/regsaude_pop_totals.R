@@ -3,7 +3,7 @@
 #' This function provides a tibble containing total population estimates for Brazilian health regions.
 #'
 #' @param type character. 'standard' or 'reg_saude_449'
-#' @param source character. `bmh` for Brazilian Health Ministry estimates (2000 to 2021), `ufrn` for UFRN-DEM-LEPP estimates (2010 to 2030), or `ibge` for IBGE estimates (2000 to 2022).
+#' @param source character. `datasus` for Brazilian Health Ministry estimates (2000 to 2021), `ufrn` for UFRN-DEM-LEPP estimates (2010 to 2030), or `ibge` for IBGE estimates (2000 to 2022).
 #'
 #' @returns A tibble.
 #' @seealso [regsaude_male_pop], [regsaude_female_pop], [ibge_pop].
@@ -11,12 +11,12 @@
 #' @importFrom rlang .data
 #' @export
 
-regsaude_pop_totals <- function(type = "standard", source = "bmh"){
+regsaude_pop_totals <- function(type = "standard", source = "datasus"){
   # Assertions
   checkmate::assert_choice(x = type, choices = c("standard", "reg_saude_449"))
-  checkmate::assert_choice(x = source, choices = c("bmh", "ufrn", "ibge"))
+  checkmate::assert_choice(x = source, choices = c("datasus", "ufrn", "ibge"))
 
-  if(source == "bmh" | source == "ufrn"){
+  if(source == "datasus" | source == "ufrn"){
     res <- dplyr::bind_rows(regsaude_male_pop_totals(type = type, source = source),
                           regsaude_female_pop_totals(type = type, source = source)) %>%
       dtplyr::lazy_dt() %>%
@@ -27,12 +27,12 @@ regsaude_pop_totals <- function(type = "standard", source = "bmh"){
       tibble::as_tibble()
   } else if(source == "ibge"){
     if(type == "standard"){
-      tmp <- ibge_pop %>%
+      tmp <- brpop::ibge_pop %>%
         dplyr::mutate(code_muni = as.numeric(substr(.data$code_muni, 0, 6))) %>%
         dplyr::left_join(brpop::mun_reg_saude,
                               by = c("code_muni" = "cod_mun"))
     } else if(type == "reg_saude_449"){
-      tmp <- ibge_pop %>%
+      tmp <- brpop::ibge_pop %>%
         dplyr::mutate(code_muni = as.numeric(substr(.data$code_muni, 0, 6))) %>%
         dplyr::left_join(brpop::mun_reg_saude_449,
                               by = c("code_muni" = "cod_mun"))

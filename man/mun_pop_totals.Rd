@@ -4,10 +4,10 @@
 \alias{mun_pop_totals}
 \title{Municipality yearly population totals}
 \usage{
-mun_pop_totals(source = "bmh")
+mun_pop_totals(source = "datasus")
 }
 \arguments{
-\item{source}{character. \code{bmh} for Brazilian Health Ministry estimates (2000 to 2021), \code{ufrn} for UFRN-DEM-LEPP estimates (2010 to 2030), or \code{ibge} for IBGE estimates (2000 to 2022).}
+\item{source}{character. \code{datasus} for Brazilian Health Ministry estimates (2000 to 2021), \code{ufrn} for UFRN-DEM-LEPP estimates (2010 to 2030), or \code{ibge} for IBGE estimates (2000 to 2022).}
 }
 \value{
 A tibble.
@@ -16,5 +16,5 @@ A tibble.
 This function provides a tibble containing total population estimates for Brazilian municipalities.
 }
 \seealso{
-\link{bmh_mun_male_pop}, \link{bmh_mun_female_pop}, \link{ufrn_mun_male_pop}, \link{ufrn_mun_female_pop}, \link{ibge_pop}.
+\link{datasus_mun_male_pop}, \link{datasus_mun_female_pop}, \link{ufrn_mun_male_pop}, \link{ufrn_mun_female_pop}, \link{ibge_pop}.
 }

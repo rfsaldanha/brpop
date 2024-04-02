@@ -4,12 +4,12 @@
 \alias{regsaude_pop_totals}
 \title{Health region yearly total population estimates}
 \usage{
-regsaude_pop_totals(type = "standard", source = "bmh")
+regsaude_pop_totals(type = "standard", source = "datasus")
 }
 \arguments{
 \item{type}{character. 'standard' or 'reg_saude_449'}
 
-\item{source}{character. \code{bmh} for Brazilian Health Ministry estimates (2000 to 2021), \code{ufrn} for UFRN-DEM-LEPP estimates (2010 to 2030), or \code{ibge} for IBGE estimates (2000 to 2022).}
+\item{source}{character. \code{datasus} for Brazilian Health Ministry estimates (2000 to 2021), \code{ufrn} for UFRN-DEM-LEPP estimates (2010 to 2030), or \code{ibge} for IBGE estimates (2000 to 2022).}
 }
 \value{
 A tibble.

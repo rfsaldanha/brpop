@@ -1,5 +1,5 @@
-test_that("bmh pop uf general is consistent", {
-  res <- uf_pop(source = "bmh") %>%
+test_that("datasus pop uf general is consistent", {
+  res <- uf_pop(source = "datasus") %>%
     dplyr::group_by(year, age_group) %>%
     dplyr::summarise(freq = sum(pop, na.rm = TRUE)) %>%
     dplyr::ungroup() %>%

@@ -4,12 +4,12 @@
 \alias{regsaude_male_pop}
 \title{Health region yearly male population estimates per age group}
 \usage{
-regsaude_male_pop(type = "standard", source = "bmh")
+regsaude_male_pop(type = "standard", source = "datasus")
 }
 \arguments{
 \item{type}{character. 'standard' or 'reg_saude_449'}
 
-\item{source}{character. \code{bmh} for Brazilian Health Ministry estimates, or \code{ufrn} for UFRN-DEM-LEPP estimates.}
+\item{source}{character. \code{datasus} for Brazilian Health Ministry estimates, or \code{ufrn} for UFRN-DEM-LEPP estimates.}
 }
 \value{
 A tibble.
@@ -18,5 +18,5 @@ A tibble.
 This function provides a tibble containing male population estimates for Brazilian health regions per age groups.
 }
 \seealso{
-\link{bmh_mun_male_pop}, \link{ufrn_mun_male_pop}.
+\link{datasus_mun_male_pop}, \link{ufrn_mun_male_pop}.
 }

@@ -4,12 +4,12 @@
 \alias{regsaude_pop}
 \title{Health region yearly population estimates per age group}
 \usage{
-regsaude_pop(type = "standard", source = "bmh")
+regsaude_pop(type = "standard", source = "datasus")
 }
 \arguments{
 \item{type}{character. 'standard' or 'reg_saude_449'}
 
-\item{source}{character. \code{bmh} for Brazilian Health Ministry estimates, or \code{ufrn} for UFRN-DEM-LEPP estimates.}
+\item{source}{character. \code{datasus} for Brazilian Health Ministry estimates, or \code{ufrn} for UFRN-DEM-LEPP estimates.}
 }
 \value{
 A tibble.

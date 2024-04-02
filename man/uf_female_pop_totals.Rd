@@ -4,10 +4,10 @@
 \alias{uf_female_pop_totals}
 \title{UF yearly female population estimates totals}
 \usage{
-uf_female_pop_totals(source = "bmh")
+uf_female_pop_totals(source = "datasus")
 }
 \arguments{
-\item{source}{character. \code{bmh} for Brazilian Health Ministry estimates, or \code{ufrn} for UFRN-DEM-LEPP estimates.}
+\item{source}{character. \code{datasus} for Brazilian Health Ministry estimates, or \code{ufrn} for UFRN-DEM-LEPP estimates.}
 }
 \value{
 A tibble.
@@ -16,5 +16,5 @@ A tibble.
 This function provides a tibble containing female population estimates for Brazilian UFs ("Unidades Federativas") totals.
 }
 \seealso{
-\link{bmh_mun_female_pop}, \link{ufrn_mun_female_pop}.
+\link{datasus_mun_female_pop}, \link{ufrn_mun_female_pop}.
 }

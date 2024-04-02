@@ -4,10 +4,10 @@
 \alias{mun_pop}
 \title{Municipality yearly population estimates per age group}
 \usage{
-mun_pop(source = "bmh")
+mun_pop(source = "datasus")
 }
 \arguments{
-\item{source}{character. \code{bmh} for Brazilian Health Ministry estimates, \code{ufrn} for UFRN-DEM-LEPP estimates, \code{avg} for an average between both.}
+\item{source}{character. \code{datasus} for Brazilian Health Ministry estimates, \code{ufrn} for UFRN-DEM-LEPP estimates, \code{avg} for an average between both.}
 }
 \value{
 A tibble.
@@ -16,5 +16,5 @@ A tibble.
 This function provides a tibble containing population estimates for Brazilian municipalities per age groups.
 }
 \seealso{
-\link{bmh_mun_male_pop}, \link{bmh_mun_female_pop}, \link{ufrn_mun_male_pop}, \link{ufrn_mun_female_pop}.
+\link{datasus_mun_male_pop}, \link{datasus_mun_female_pop}, \link{ufrn_mun_male_pop}, \link{ufrn_mun_female_pop}.
 }
