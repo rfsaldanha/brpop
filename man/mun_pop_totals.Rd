@@ -13,7 +13,7 @@ mun_pop_totals(source = "bmh")
 A tibble.
 }
 \description{
-This function provides a tibble containing population total estimates for Brazilian municipalities.
+This function provides a tibble containing total population estimates for Brazilian municipalities.
 }
 \seealso{
 \link{bmh_mun_male_pop}, \link{bmh_mun_female_pop}, \link{ufrn_mun_male_pop}, \link{ufrn_mun_female_pop}, \link{ibge_pop}.

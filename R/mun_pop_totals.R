@@ -1,6 +1,6 @@
 #' Municipality yearly population totals
 #'
-#' This function provides a tibble containing population total estimates for Brazilian municipalities.
+#' This function provides a tibble containing total population estimates for Brazilian municipalities.
 #'
 #' @param source character. `bmh` for Brazilian Health Ministry estimates (2000 to 2021), `ufrn` for UFRN-DEM-LEPP estimates (2010 to 2030), or `ibge` for IBGE estimates (2000 to 2022).
 #'
