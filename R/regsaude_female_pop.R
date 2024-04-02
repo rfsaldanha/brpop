@@ -31,7 +31,7 @@ regsaude_female_pop <- function(type = "standard", source = "datasus"){
   }
 
   res <- dtplyr::lazy_dt(x = res) %>%
-    dplyr::group_by(regsaude = .data$cod_reg_saude, .data$year, .data$age_group) %>%
+    dplyr::group_by(.data$codi_reg_saude, .data$year, .data$age_group) %>%
     dplyr::summarise(pop = sum(.data$pop, na.rm = TRUE)) %>%
     dplyr::ungroup() %>%
     tibble::as_tibble()

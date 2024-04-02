@@ -40,10 +40,10 @@ regsaude_pop_totals <- function(type = "standard", source = "datasus"){
 
     res <- tmp %>%
       dtplyr::lazy_dt() %>%
-      dplyr::group_by(.data$cod_reg_saude, .data$year) %>%
+      dplyr::group_by(.data$codi_reg_saude, .data$year) %>%
       dplyr::summarise(pop = sum(.data$pop)) %>%
       dplyr::ungroup() %>%
-      dplyr::arrange(.data$cod_reg_saude, .data$year) %>%
+      dplyr::arrange(.data$codi_reg_saude, .data$year) %>%
       tibble::as_tibble()
   }
 

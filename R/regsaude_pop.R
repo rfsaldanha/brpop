@@ -22,7 +22,7 @@ regsaude_pop <- function(type = "standard", source = "datasus"){
     dplyr::group_by(.data$regsaude, .data$year, .data$age_group) %>%
     dplyr::summarise(pop = sum(.data$pop, na.rm = TRUE)) %>%
     dplyr::collect() %>%
-    dplyr::arrange(.data$regsaude, .data$year, .data$age_group) %>%
+    dplyr::arrange(.data$codi_reg_saude, .data$year, .data$age_group) %>%
     tibble::as_tibble()
 
   return(res)

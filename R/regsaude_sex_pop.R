@@ -23,10 +23,10 @@ regsaude_sex_pop <- function(type = "standard", source = "datasus"){
 
   res <- dplyr::bind_rows(regsaude_male_pop, regsaude_female_pop) %>%
     dtplyr::lazy_dt() %>%
-    dplyr::group_by(.data$regsaude, .data$year, .data$age_group, .data$sex) %>%
+    dplyr::group_by(.data$codi_reg_saude, .data$year, .data$age_group, .data$sex) %>%
     dplyr::summarise(pop = sum(.data$pop, na.rm = TRUE)) %>%
     dplyr::ungroup() %>%
-    dplyr::arrange(.data$regsaude, .data$year, .data$age_group, .data$sex) %>%
+    dplyr::arrange(.data$codi_reg_saude, .data$year, .data$age_group, .data$sex) %>%
     dplyr::relocate(.data$sex, .after = .data$pop) %>%
     tibble::as_tibble()
 
