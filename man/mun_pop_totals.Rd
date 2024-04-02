@@ -2,19 +2,19 @@
 % Please edit documentation in R/mun_pop_totals.R
 \name{mun_pop_totals}
 \alias{mun_pop_totals}
-\title{Municipality yearly population estimates totals}
+\title{Municipality yearly population totals}
 \usage{
 mun_pop_totals(source = "bmh")
 }
 \arguments{
-\item{source}{character. \code{bmh} for Brazilian Health Ministry estimates, or \code{ufrn} for UFRN-DEM-LEPP estimates.}
+\item{source}{character. \code{bmh} for Brazilian Health Ministry estimates (2000 to 2021), \code{ufrn} for UFRN-DEM-LEPP estimates (2010 to 2030), or \code{ibge} for IBGE estimates (2000 to 2022).}
 }
 \value{
 A tibble.
 }
 \description{
-This function provides a tibble containing population estimates for Brazilian municipalities totals.
+This function provides a tibble containing population total estimates for Brazilian municipalities.
 }
 \seealso{
-\link{bmh_mun_male_pop}, \link{bmh_mun_female_pop}, \link{ufrn_mun_male_pop}, \link{ufrn_mun_female_pop}.
+\link{bmh_mun_male_pop}, \link{bmh_mun_female_pop}, \link{ufrn_mun_male_pop}, \link{ufrn_mun_female_pop}, \link{ibge_pop}.
 }
