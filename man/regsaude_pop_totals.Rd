@@ -2,21 +2,21 @@
 % Please edit documentation in R/regsaude_pop_totals.R
 \name{regsaude_pop_totals}
 \alias{regsaude_pop_totals}
-\title{Health region yearly population estimates totals}
+\title{Health region yearly total population estimates}
 \usage{
 regsaude_pop_totals(type = "standard", source = "bmh")
 }
 \arguments{
 \item{type}{character. 'standard' or 'reg_saude_449'}
 
-\item{source}{character. \code{bmh} for Brazilian Health Ministry estimates, or \code{ufrn} for UFRN-DEM-LEPP estimates.}
+\item{source}{character. \code{bmh} for Brazilian Health Ministry estimates (2000 to 2021), \code{ufrn} for UFRN-DEM-LEPP estimates (2010 to 2030), or \code{ibge} for IBGE estimates (2000 to 2022).}
 }
 \value{
 A tibble.
 }
 \description{
-This function provides a tibble containing population estimates for Brazilian health regions totals.
+This function provides a tibble containing total population estimates for Brazilian health regions.
 }
 \seealso{
-\link{regsaude_male_pop}, \link{regsaude_female_pop}.
+\link{regsaude_male_pop}, \link{regsaude_female_pop}, \link{ibge_pop}.
 }
