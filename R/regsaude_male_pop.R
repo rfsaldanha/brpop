@@ -9,7 +9,6 @@
 #' @seealso [datasus_mun_male_pop], [ufrn_mun_male_pop].
 #'
 #' @importFrom rlang .data
-#' @export
 
 regsaude_male_pop <- function(type = "standard", source = "datasus"){
   # Assertions
