@@ -1,3 +1,10 @@
+# brpop 0.4.0
+* Add population estimates from the UFRN-PPGDem-LEPP (2010 to 2030) for sex and age groups.
+* Add total municipality population from IBGE estimates, Census and Population Inquiries (2000 to 2022).
+* Adopt `dtplyr` for faster computations.
+* Documentation revision.
+* Function names revision.
+
 # brpop 0.3.0
 * Bug correction on `mun_reg_saude`: remove duplicated records.
 * Add arguments to `reg_saude_*` functions to use the 449 units health region version.
