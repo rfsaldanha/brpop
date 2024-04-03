@@ -1,5 +1,5 @@
 test_that("datasus pop uf general is consistent", {
-  res <- uf_pop(source = "datasus") %>%
+  res <- uf_pop_age(source = "datasus") %>%
     dplyr::group_by(year, age_group) %>%
     dplyr::summarise(freq = sum(pop, na.rm = TRUE)) %>%
     dplyr::ungroup() %>%
@@ -11,7 +11,7 @@ test_that("datasus pop uf general is consistent", {
 })
 
 test_that("ufrn pop uf general is consistent", {
-  res <- uf_pop(source = "ufrn") %>%
+  res <- uf_pop_age(source = "ufrn") %>%
     dplyr::group_by(year, age_group) %>%
     dplyr::summarise(freq = sum(pop, na.rm = TRUE)) %>%
     dplyr::ungroup() %>%
