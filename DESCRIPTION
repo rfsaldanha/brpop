@@ -26,3 +26,4 @@ Imports:
     tibble
 URL: https://rfsaldanha.github.io/brpop/
 BugReports: https://github.com/rfsaldanha/brpop/issues
+Config/Needs/website: rmarkdown
