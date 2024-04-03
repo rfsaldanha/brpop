@@ -35,12 +35,12 @@ uf_pop_totals <- function(source = "datasus"){
       tibble::as_tibble()
   } else if (source == "ibge"){
     res <- brpop::ibge_pop %>%
-      dplyr::mutate(code_uf = substr(.data$code_muni, 0, 2)) %>%
+      dplyr::mutate(uf = substr(.data$code_muni, 0, 2)) %>%
       dtplyr::lazy_dt() %>%
-      dplyr::group_by(.data$code_uf, .data$year) %>%
+      dplyr::group_by(.data$uf, .data$year) %>%
       dplyr::summarise(pop = sum(.data$pop, na.rm = TRUE)) %>%
       dplyr::ungroup() %>%
-      dplyr::arrange(.data$code_uf, .data$year, .data$pop) %>%
+      dplyr::arrange(.data$uf, .data$year, .data$pop) %>%
       tibble::as_tibble()
   }
 
