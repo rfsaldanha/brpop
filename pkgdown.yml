@@ -3,7 +3,7 @@ pkgdown: 2.0.7
 pkgdown_sha: ~
 articles:
   Population-estimates-comparison: Population-estimates-comparison.html
-last_built: 2024-04-09T10:15Z
+last_built: 2024-04-09T10:20Z
 urls:
   reference: https://rfsaldanha.github.io/brpop/reference
   article: https://rfsaldanha.github.io/brpop/articles
