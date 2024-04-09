@@ -10,6 +10,12 @@
     <loc>https://rfsaldanha.github.io/brpop/LICENSE.html</loc>
   </url>
   <url>
+    <loc>https://rfsaldanha.github.io/brpop/articles/Population-estimates-comparison.html</loc>
+  </url>
+  <url>
+    <loc>https://rfsaldanha.github.io/brpop/articles/index.html</loc>
+  </url>
+  <url>
     <loc>https://rfsaldanha.github.io/brpop/authors.html</loc>
   </url>
   <url>
@@ -19,22 +25,28 @@
     <loc>https://rfsaldanha.github.io/brpop/news/index.html</loc>
   </url>
   <url>
-    <loc>https://rfsaldanha.github.io/brpop/reference/index.html</loc>
+    <loc>https://rfsaldanha.github.io/brpop/reference/brpop-package.html</loc>
   </url>
   <url>
-    <loc>https://rfsaldanha.github.io/brpop/reference/mun_female_pop.html</loc>
+    <loc>https://rfsaldanha.github.io/brpop/reference/datasus_mun_female_pop.html</loc>
+  </url>
+  <url>
+    <loc>https://rfsaldanha.github.io/brpop/reference/datasus_mun_male_pop.html</loc>
+  </url>
+  <url>
+    <loc>https://rfsaldanha.github.io/brpop/reference/ibge_pop.html</loc>
+  </url>
+  <url>
+    <loc>https://rfsaldanha.github.io/brpop/reference/index.html</loc>
   </url>
   <url>
     <loc>https://rfsaldanha.github.io/brpop/reference/mun_female_pop_totals.html</loc>
   </url>
   <url>
-    <loc>https://rfsaldanha.github.io/brpop/reference/mun_male_pop.html</loc>
-  </url>
-  <url>
     <loc>https://rfsaldanha.github.io/brpop/reference/mun_male_pop_totals.html</loc>
   </url>
   <url>
-    <loc>https://rfsaldanha.github.io/brpop/reference/mun_pop.html</loc>
+    <loc>https://rfsaldanha.github.io/brpop/reference/mun_pop_age.html</loc>
   </url>
   <url>
     <loc>https://rfsaldanha.github.io/brpop/reference/mun_pop_totals.html</loc>
@@ -64,7 +76,7 @@
     <loc>https://rfsaldanha.github.io/brpop/reference/regsaude_male_pop_totals.html</loc>
   </url>
   <url>
-    <loc>https://rfsaldanha.github.io/brpop/reference/regsaude_pop.html</loc>
+    <loc>https://rfsaldanha.github.io/brpop/reference/regsaude_pop_age.html</loc>
   </url>
   <url>
     <loc>https://rfsaldanha.github.io/brpop/reference/regsaude_pop_totals.html</loc>
@@ -73,24 +85,24 @@
     <loc>https://rfsaldanha.github.io/brpop/reference/regsaude_sex_pop.html</loc>
   </url>
   <url>
-    <loc>https://rfsaldanha.github.io/brpop/reference/uf_female_pop.html</loc>
-  </url>
-  <url>
     <loc>https://rfsaldanha.github.io/brpop/reference/uf_female_pop_totals.html</loc>
-  </url>
-  <url>
-    <loc>https://rfsaldanha.github.io/brpop/reference/uf_male_pop.html</loc>
   </url>
   <url>
     <loc>https://rfsaldanha.github.io/brpop/reference/uf_male_pop_totals.html</loc>
   </url>
   <url>
-    <loc>https://rfsaldanha.github.io/brpop/reference/uf_pop.html</loc>
+    <loc>https://rfsaldanha.github.io/brpop/reference/uf_pop_age.html</loc>
   </url>
   <url>
     <loc>https://rfsaldanha.github.io/brpop/reference/uf_pop_totals.html</loc>
   </url>
   <url>
     <loc>https://rfsaldanha.github.io/brpop/reference/uf_sex_pop.html</loc>
+  </url>
+  <url>
+    <loc>https://rfsaldanha.github.io/brpop/reference/ufrn_mun_female_pop.html</loc>
+  </url>
+  <url>
+    <loc>https://rfsaldanha.github.io/brpop/reference/ufrn_mun_male_pop.html</loc>
   </url>
 </urlset>
