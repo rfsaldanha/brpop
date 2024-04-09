@@ -36,7 +36,7 @@ reference:
   - mun_pop_age
   - regsaude_pop_age
   - uf_pop_age
-  - title: "Totals by sex and age group"
+- title: "Totals by sex and age group"
   desc: "Functions to return the total population per year, geographical unit, sex and age group."
   contents:
   - mun_sex_pop
