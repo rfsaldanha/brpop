@@ -1,9 +1,9 @@
 # brpop: Brazilian population estimates
 
 <!-- badges: start -->
-[![CRAN status](https://www.r-pkg.org/badges/version/brpop)](https://CRAN.R-project.org/package=brpop)
-[![](https://cranlogs.r-pkg.org/badges/brpop)](https://cran.r-project.org/package=brpop)
-[![R-CMD-check](https://github.com/rfsaldanha/brpop/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/rfsaldanha/brpop/actions/workflows/R-CMD-check.yaml)
+
+[![CRAN status](https://www.r-pkg.org/badges/version/brpop)](https://CRAN.R-project.org/package=brpop) [![](https://cranlogs.r-pkg.org/badges/brpop)](https://cran.r-project.org/package=brpop) [![R-CMD-check](https://github.com/rfsaldanha/brpop/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/rfsaldanha/brpop/actions/workflows/R-CMD-check.yaml)
+
 <!-- badges: end -->
 
 `brpop` is an `R` package that provides yearly (2000 to 2021) Brazilian population estimates from DataSUS/Brazilian Health Ministry, aggregated by state, municipality, sex, and age groups. Those estimates are especially useful for calculating age and sex standardized disease rates.
@@ -14,59 +14,22 @@ The population estimates were downloaded manually from DataSUS and converted to 
 
 Stable release at CRAN.
 
-```{r}
+``` r
 install.packages("brpop")
 library(brpop)
 ```
 
 Development version at GitHub.
 
-```{r}
+``` r
 remotes::install_github("rfsaldanha/brpop")
 library(brpop)
 ```
 
 ## Usage
 
-The package provides population estimates for municipalities, UF and health regions by sex and age groups.
+The package provides population estimates by sex, age groups, municipalities and year from two sources: the [DataSUS estimates](http://tabnet.datasus.gov.br/cgi/IBGE/SEI_MS-0034745983-Nota_Tecnica_final.pdf), covering 2000 to 2021 and the [UFRN-PPGDEM-LEPP estimates](https://demografiaufrn.net/projecao-populacional/), covering from 2010 to 2030.
 
-The base dataset are population estimates by municipalities and sex.
+The package also provide total population estimates by municipality and year from IBGE from 2000 to 2022.
 
-```{r}
-head(mun_female_pop)
-head(mun_male_pop)
-```
-
-The package provides several functions to aggregate those datasets into multiple ways. The functions are provided for municipalities with the prefix `mun_`, UFs with the prefix `uf_`, and health regions with the prefix `regsaude_`. Those function takes no arguments.
-
-### Estimates by year, sex and age group
-
-The functions `*_sex_pop` binds the estimates by sex into a single tibble with a new variable called sex.
-
-```{r}
-mun_sex_pop()
-uf_sex_pop()
-regsaude_sex_pop()
-```
-
-### Estimates by year and age group
-
-The functions `*_pop` aggregates the municipalities' estimates by sex, resulting in a tibble with overall population estimates. 
-
-```{r}
-mun_pop()
-uf_pop()
-regsaude_pop()
-```
-
-### Estimates by year
-
-The functions `*_pop_totals` provides the total population estimative.
-
-```{r}
-mun_pop_totals()
-uf_pop_totals()
-regsaude_pop_totals()
-```
-
-
+Along with the datasets, the package provide several functions to aggregate the estimates by state (UF) and health regions. Look at the [Reference](https://rfsaldanha.github.io/brpop/reference/index.html) section for more details.
