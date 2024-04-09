@@ -6,17 +6,18 @@
 \alias{brpop-package}
 \title{brpop: Brazilian Population Estimatives}
 \description{
-Datasets with yearly Brazilian population estimates from 'Brazilian Health Ministry' (DataSUS) and 'Universidade Federal do Rio Grande do Norte' (UFRN), aggregated by municipality, state, health region, sex, and age groups. The data in this package was manually downloaded from the DataSUS and UFRN websites and converted to tibbles.
+Functions to handle and aggregate population estimates for Brazilian municipalities by sex and age groups.
 }
 \seealso{
 Useful links:
 \itemize{
   \item \url{https://rfsaldanha.github.io/brpop/}
+  \item Report bugs at \url{https://github.com/rfsaldanha/brpop/issues}
 }
 
 }
 \author{
-\strong{Maintainer}: Raphael Saldanha \email{raphael.saldanha@icict.fiocruz.br} (\href{https://orcid.org/0000-0003-0652-8466}{ORCID})
+\strong{Maintainer}: Raphael Saldanha \email{raphael.de-freitas-saldanha@inria.fr} (\href{https://orcid.org/0000-0003-0652-8466}{ORCID})
 
 }
 \keyword{internal}
