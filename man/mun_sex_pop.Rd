@@ -4,14 +4,17 @@
 \alias{mun_sex_pop}
 \title{Municipality yearly population estimates per age group and sex}
 \usage{
-mun_sex_pop()
+mun_sex_pop(source = "datasus")
+}
+\arguments{
+\item{source}{character. \code{datasus} for Brazilian Health Ministry estimates, or \code{ufrn} for UFRN-DEM-LEPP estimates.}
 }
 \value{
 A tibble.
 }
 \description{
-This function binds UF male and female datasets (\code{mun_male_pop} and \code{mun_female_pop}) and includes a new variable called 'sex'.
+This function binds municipality male and female estimates and includes a new variable called 'sex'.
 }
 \seealso{
-\link{mun_male_pop}, \link{mun_female_pop}.
+\link{datasus_mun_male_pop}, \link{datasus_mun_female_pop}, \link{ufrn_mun_male_pop}, \link{ufrn_mun_female_pop}.
 }

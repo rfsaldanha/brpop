@@ -2,27 +2,21 @@
 % Please edit documentation in R/regsaude_pop_totals.R
 \name{regsaude_pop_totals}
 \alias{regsaude_pop_totals}
-\title{Health region yearly population estimates totals}
+\title{Health region yearly total population estimates}
 \usage{
-regsaude_pop_totals(type = "standard")
+regsaude_pop_totals(type = "standard", source = "datasus")
 }
 \arguments{
-\item{type}{character. 'standard' or 'reg_saude_449'
+\item{type}{character. 'standard' or 'reg_saude_449'}
 
-The estimates were calculated by DataSUS (Brazilian Ministry of Health), manually downloaded from DataSUS website, and organized as a tibble.
-
-\describe{
-\item{regsaude}{health region 4 or 5 digits code}
-\item{year}{year of the estimative}
-\item{pop}{population estimative}
-}}
+\item{source}{character. \code{datasus} for Brazilian Health Ministry estimates (2000 to 2021), \code{ufrn} for UFRN-DEM-LEPP estimates (2010 to 2030), or \code{ibge} for IBGE estimates (2000 to 2022).}
 }
 \value{
 A tibble.
 }
 \description{
-This function provides a tibble containing population estimates for Brazilian health regions totals from 2000 to 2021.
+This function provides a tibble containing total population estimates for Brazilian health regions.
 }
 \seealso{
-\link{regsaude_male_pop}, \link{regsaude_female_pop}.
+\link{regsaude_male_pop}, \link{regsaude_female_pop}, \link{ibge_pop}.
 }

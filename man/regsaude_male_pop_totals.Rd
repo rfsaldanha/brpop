@@ -4,24 +4,18 @@
 \alias{regsaude_male_pop_totals}
 \title{Health region yearly male population estimates totals}
 \usage{
-regsaude_male_pop_totals(type = "standard")
+regsaude_male_pop_totals(type = "standard", source = "datasus")
 }
 \arguments{
-\item{type}{character. 'standard' or 'reg_saude_449'
+\item{type}{character. 'standard' or 'reg_saude_449'}
 
-The estimates were calculated by DataSUS (Brazilian Ministry of Health), manually downloaded from DataSUS website, and organized as a tibble.
-
-\describe{
-\item{regsaude}{health region 4 or 5 digits code}
-\item{year}{year of the estimative}
-\item{pop}{population estimative}
-}}
+\item{source}{character. \code{datasus} for Brazilian Health Ministry estimates, or \code{ufrn} for UFRN-DEM-LEPP estimates.}
 }
 \value{
 A tibble.
 }
 \description{
-This function provides a tibble containing male population estimates for Brazilian health regions totals from 2000 to 2021.
+This function provides a tibble containing male population estimates for Brazilian health regions totals.
 }
 \seealso{
 \link{regsaude_male_pop}.

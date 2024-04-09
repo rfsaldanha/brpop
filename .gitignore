@@ -27,5 +27,6 @@ vignettes/*.pdf
 # R Environment Variables
 .Renviron
 .Rproj.user
-data-raw
 docs
+data-raw/bhm
+data-raw/ufrn-dem

@@ -4,23 +4,17 @@
 \alias{uf_male_pop_totals}
 \title{UF yearly male population estimates totals}
 \usage{
-uf_male_pop_totals()
+uf_male_pop_totals(source = "datasus")
+}
+\arguments{
+\item{source}{character. \code{datasus} for Brazilian Health Ministry estimates, or \code{ufrn} for UFRN-DEM-LEPP estimates.}
 }
 \value{
 A tibble.
 }
 \description{
-This function provides a tibble containing male population estimates for Brazilian UFs ("Unidades Federativas") totals from 2000 to 2021.
-}
-\details{
-The estimates were calculated by DataSUS (Brazilian Ministry of Health), manually downloaded from DataSUS website, and organized as a tibble.
-
-\describe{
-\item{uf}{UF 2 digits code}
-\item{year}{year of the estimative}
-\item{pop}{population estimative}
-}
+This function provides a tibble containing male population estimates for Brazilian UFs ("Unidades Federativas") totals.
 }
 \seealso{
-\link{uf_male_pop}.
+\link{datasus_mun_male_pop}, \link{ufrn_mun_male_pop}.
 }

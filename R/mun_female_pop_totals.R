@@ -1,25 +1,29 @@
 #' Municipality yearly female population estimates totals
 #'
-#' This function provides a tibble containing female population estimates for Brazilian municipalities totals from 2000 to 2021.
+#' This function provides a tibble containing female population estimates for Brazilian municipalities totals.
 #'
-#' The estimates were calculated by DataSUS (Brazilian Ministry of Health), manually downloaded from DataSUS website, and organized as a tibble.
-#'
-#' \describe{
-#'   \item{mun}{municipality 6 digits code}
-#'   \item{year}{year of the estimative}
-#'   \item{pop}{population estimative}
-#' }
+#' @param source character. `datasus` for Brazilian Health Ministry estimates, or `ufrn` for UFRN-DEM-LEPP estimates.
 #'
 #' @returns A tibble.
-#' @seealso [mun_female_pop].
+#' @seealso [datasus_mun_female_pop], [ufrn_mun_female_pop].
 #'
 #' @importFrom rlang .data
 #' @export
 
-mun_female_pop_totals <- function(){
-  res <- brpop::mun_female_pop %>%
+mun_female_pop_totals <- function(source = "datasus"){
+  # Assertions
+  checkmate::assert_choice(x = source, choices = c("datasus", "ufrn"))
+
+  # Estimates source
+  if(source == "datasus"){
+    mun_female_pop <- brpop::datasus_mun_female_pop
+  } else if(source == "ufrn"){
+    mun_female_pop <- brpop::ufrn_mun_female_pop
+  }
+
+  res <- mun_female_pop %>%
     dplyr::filter(.data$age_group == "Total") %>%
-    dplyr::arrange(.data$mun, .data$year)
+    dplyr::arrange(.data$code_muni, .data$year)
 
   return(res)
 }

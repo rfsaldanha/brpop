@@ -2,25 +2,19 @@
 % Please edit documentation in R/mun_pop_totals.R
 \name{mun_pop_totals}
 \alias{mun_pop_totals}
-\title{Municipality yearly population estimates totals}
+\title{Municipality yearly population totals}
 \usage{
-mun_pop_totals()
+mun_pop_totals(source = "datasus")
+}
+\arguments{
+\item{source}{character. \code{datasus} for Brazilian Health Ministry estimates (2000 to 2021), \code{ufrn} for UFRN-DEM-LEPP estimates (2010 to 2030), or \code{ibge} for IBGE estimates (2000 to 2022).}
 }
 \value{
 A tibble.
 }
 \description{
-This function provides a tibble containing population estimates for Brazilian municipalities totals from 2000 to 2021.
-}
-\details{
-The estimates were calculated by DataSUS (Brazilian Ministry of Health), manually downloaded from DataSUS website, and organized as a tibble.
-
-\describe{
-\item{mun}{municipality 6 digits code}
-\item{year}{year of the estimative}
-\item{pop}{population estimative}
-}
+This function provides a tibble containing total population estimates for Brazilian municipalities.
 }
 \seealso{
-\link{mun_male_pop}, \link{mun_female_pop}.
+\link{datasus_mun_male_pop}, \link{datasus_mun_female_pop}, \link{ufrn_mun_male_pop}, \link{ufrn_mun_female_pop}, \link{ibge_pop}.
 }

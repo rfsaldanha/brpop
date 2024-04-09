@@ -1,25 +1,31 @@
 Package: brpop
 Title: Brazilian Population Estimatives
-Version: 0.3.0
+Version: 0.4.0
 Authors@R: 
-    person("Raphael", "Saldanha", , "raphael.saldanha@icict.fiocruz.br", role = c("aut", "cre"),
+    person("Raphael", "Saldanha", , "raphael.de-freitas-saldanha@inria.fr", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0003-0652-8466"))
-Description: Datasets with yearly (2000 to 2021) Brazilian population estimates from DataSUS/Brazilian Health Ministry, aggregated by state, municipality, sex, and age groups. The data in this package is manually downloaded from the DataSUS website and converted to tibbles.
+Description: Functions to handle and aggregate population estimates for Brazilian municipalities by sex and age groups.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.1
 Depends: 
     R (>= 2.10)
 LazyData: true
 LazyDataCompression: xz
 Suggests: 
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    ggplot2,
+    scales
 Config/testthat/edition: 3
 Imports: 
+    checkmate,
+    data.table,
     dplyr,
-    future,
+    dtplyr,
     magrittr,
-    multidplyr,
-    rlang
+    rlang,
+    tibble
 URL: https://rfsaldanha.github.io/brpop/
+BugReports: https://github.com/rfsaldanha/brpop/issues
+Config/Needs/website: rmarkdown
