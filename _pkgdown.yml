@@ -4,6 +4,11 @@ template:
   theme: breeze-light
   params:
     ganalytics: G-2M7VLSRDCB
+
+navbar:
+  structure:
+    right: [github]
+
 reference:
 - title: "Population datasets"
   desc: "Population estimates datasets available at the package."
