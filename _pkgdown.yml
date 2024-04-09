@@ -25,7 +25,7 @@ reference:
   desc: "Functions to return the total population per year, geographical unit and sex."
   contents:
   - mun_female_pop_totals
-  - mun_male_pop_totals()
+  - mun_male_pop_totals
   - regsaude_female_pop_totals
   - regsaude_male_pop_totals
   - uf_female_pop_totals
