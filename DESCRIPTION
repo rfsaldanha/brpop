@@ -24,6 +24,9 @@ Imports:
     magrittr,
     rlang,
     tibble
+Suggests:
+    ggplot2,
+    scales
 URL: https://rfsaldanha.github.io/brpop/
 BugReports: https://github.com/rfsaldanha/brpop/issues
 Config/Needs/website: rmarkdown

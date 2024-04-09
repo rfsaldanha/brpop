@@ -12,9 +12,10 @@ knitr::opts_chunk$set(
 On this article, we will compare the population estimates available at the `brpop` package.
 
 ```{r setup, message=FALSE}
-library(tidyverse)
+library(dplyr)
+library(tibble)
+library(ggplot2)
 library(scales)
-library(sessioninfo)
 library(brpop)
 ```
 
@@ -96,6 +97,6 @@ At the municipal level, the population estimates for the capitals presents more 
 ## Session info
 
 ```{r}
-session_info()
+sessionInfo()
 ```
 
