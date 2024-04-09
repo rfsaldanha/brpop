@@ -15,9 +15,9 @@ reference:
   contents:
   - datasus_mun_female_pop
   - datasus_mun_male_pop
-  - ibge_pop
   - ufrn_mun_female_pop
   - ufrn_mun_male_pop
+  - ibge_pop
 - title: "Totals"
   desc: "Functions to return the total population per year and geographical unit."
   contents:
