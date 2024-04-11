@@ -17,9 +17,9 @@ regsaude_female_pop <- function(type = "standard", source = "datasus"){
 
   # Estimates source
   if(source == "datasus"){
-    mun_female_pop <- brpop::datasus_mun_female_pop
+    mun_female_pop <- datasus_mun_female_pop()
   } else if(source == "ufrn"){
-    mun_female_pop <- brpop::ufrn_mun_female_pop %>%
+    mun_female_pop <- ufrn_mun_female_pop() %>%
       dplyr::mutate(code_muni = as.numeric(substr(.data$code_muni, 0, 6)))
   }
 

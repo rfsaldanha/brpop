@@ -16,9 +16,9 @@ mun_female_pop_totals <- function(source = "datasus"){
 
   # Estimates source
   if(source == "datasus"){
-    mun_female_pop <- brpop::datasus_mun_female_pop
+    mun_female_pop <- datasus_mun_female_pop()
   } else if(source == "ufrn"){
-    mun_female_pop <- brpop::ufrn_mun_female_pop
+    mun_female_pop <- ufrn_mun_female_pop()
   }
 
   res <- mun_female_pop %>%
