@@ -25,7 +25,8 @@ Imports:
     dtplyr,
     magrittr,
     rlang,
-    tibble
+    tibble,
+    zendown
 URL: https://rfsaldanha.github.io/brpop/
 BugReports: https://github.com/rfsaldanha/brpop/issues
 Config/Needs/website: rmarkdown
