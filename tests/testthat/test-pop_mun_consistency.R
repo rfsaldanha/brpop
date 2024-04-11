@@ -1,4 +1,5 @@
 test_that("datasus pop mun general is consistent", {
+  skip_on_cran()
   res <- mun_pop_age(source = "datasus") %>%
     dplyr::group_by(year, age_group) %>%
     dplyr::summarise(freq = sum(pop, na.rm = TRUE)) %>%
@@ -11,6 +12,7 @@ test_that("datasus pop mun general is consistent", {
 })
 
 test_that("datasus pop mun male is consistent", {
+  skip_on_cran()
   res <- datasus_mun_male_pop() %>%
     dplyr::group_by(year, age_group) %>%
     dplyr::summarise(freq = sum(pop, na.rm = TRUE)) %>%
@@ -23,6 +25,7 @@ test_that("datasus pop mun male is consistent", {
 })
 
 test_that("datasus pop mun female is consistent", {
+  skip_on_cran()
   res <- datasus_mun_female_pop() %>%
     dplyr::group_by(year, age_group) %>%
     dplyr::summarise(freq = sum(pop, na.rm = TRUE)) %>%
@@ -35,6 +38,7 @@ test_that("datasus pop mun female is consistent", {
 })
 
 test_that("ufrn pop mun general is consistent", {
+  skip_on_cran()
   res <- mun_pop_age(source = "ufrn") %>%
     dplyr::group_by(year, age_group) %>%
     dplyr::summarise(freq = sum(pop, na.rm = TRUE)) %>%
@@ -47,6 +51,7 @@ test_that("ufrn pop mun general is consistent", {
 })
 
 test_that("ufrn pop mun male is consistent", {
+  skip_on_cran()
   res <- ufrn_mun_male_pop() %>%
     dplyr::group_by(year, age_group) %>%
     dplyr::summarise(freq = sum(pop, na.rm = TRUE)) %>%
@@ -59,6 +64,7 @@ test_that("ufrn pop mun male is consistent", {
 })
 
 test_that("ufrn pop mun female is consistent", {
+  skip_on_cran()
   res <- ufrn_mun_female_pop() %>%
     dplyr::group_by(year, age_group) %>%
     dplyr::summarise(freq = sum(pop, na.rm = TRUE)) %>%
