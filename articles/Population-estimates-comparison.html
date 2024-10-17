@@ -71,6 +71,11 @@
     
 <p>On this article, we will compare the population estimates available
 at the <code>brpop</code> package.</p>
+<p>Currently, the package present population estimates by
+municipalities, sex and age groups computed by the DataSUS (Brazilian
+Health Ministry) and by the UFRN-PPGDEM-LEPP laboratory. The package
+also have the total estimates computed by IBGE for inter-census years,
+and population data for Census and population inquiries years.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tibble.tidyverse.org/" class="external-link">tibble</a></span><span class="op">)</span></span>
@@ -85,11 +90,6 @@ at the <code>brpop</code> package.</p>
 <span>  cap_code6 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">110020</span>,<span class="fl">120040</span>,<span class="fl">130260</span>,<span class="fl">140010</span>,<span class="fl">150140</span>,<span class="fl">160030</span>,<span class="fl">172100</span>,<span class="fl">211130</span>,<span class="fl">221100</span>,<span class="fl">230440</span>,<span class="fl">240810</span>,<span class="fl">250750</span>,<span class="fl">261160</span>,<span class="fl">270430</span>,<span class="fl">280030</span>,<span class="fl">292740</span>,<span class="fl">310620</span>,<span class="fl">320530</span>,<span class="fl">330455</span>,<span class="fl">355030</span>,<span class="fl">410690</span>,<span class="fl">420540</span>,<span class="fl">431490</span>,<span class="fl">500270</span>,<span class="fl">510340</span>,<span class="fl">520870</span>,<span class="fl">530010</span><span class="op">)</span>,</span>
 <span>  cap_name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Porto Velho"</span>,<span class="st">"Rio Branco"</span>,<span class="st">"Manaus"</span>,<span class="st">"Boa Vista"</span>,<span class="st">"Belém"</span>,<span class="st">"Macapá"</span>,<span class="st">"Palmas"</span>,<span class="st">"São Luís"</span>,<span class="st">"Teresina"</span>,<span class="st">"Fortaleza"</span>,<span class="st">"Natal"</span>,<span class="st">"João Pessoa"</span>,<span class="st">"Recife"</span>,<span class="st">"Maceió"</span>,<span class="st">"Aracaju"</span>,<span class="st">"Salvador"</span>,<span class="st">"Belo Horizonte"</span>,<span class="st">"Vitória"</span>,<span class="st">"Rio de Janeiro"</span>,<span class="st">"São Paulo"</span>,<span class="st">"Curitiba"</span>,<span class="st">"Florianópolis"</span>,<span class="st">"Porto Alegre"</span>,<span class="st">"Campo Grande"</span>,<span class="st">"Cuiabá"</span>,<span class="st">"Goiânia"</span>,<span class="st">"Brasília"</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
-<p>Currently, the package present population estimates by
-municipalities, sex and age groups computed by the DataSUS (Brazilian
-Health Ministry) and by the UFRN-PPGDEM-LEPP laboratory. The package
-also have the total estimates computed by IBGE for inter-census years,
-and population data for Census and population inquiries years.</p>
 <div class="section level2">
 <h2 id="total-population-per-uf">Total population per UF<a class="anchor" aria-label="anchor" href="#total-population-per-uf"></a>
 </h2>
