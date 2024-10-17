@@ -1,3 +1,6 @@
+# brpop 0.4.1
+* Add IBGE population estimates for 2023 and 2024.
+
 # brpop 0.4.0
 * Add population estimates from the UFRN-PPGDem-LEPP (2010 to 2030) for sex and age groups.
 * Add total municipality population from IBGE estimates, Census and Population Inquiries (2000 to 2022).
