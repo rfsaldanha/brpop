@@ -39,10 +39,21 @@ ufrn_mun_female_pop <- ufrn_pop |>
   filter(sexo == "f") |>
   select(-sexo)
 
-usethis::use_data(ufrn_mun_female_pop, overwrite = TRUE, compress = "xz")
+#usethis::use_data(ufrn_mun_female_pop, overwrite = TRUE, compress = "xz")
+saveRDS(
+  object = ufrn_mun_female_pop,
+  file = "data-raw/ufrn_mun_female_pop.rds",
+  compress = "xz"
+)
 
 ufrn_mun_male_pop <- ufrn_pop |>
   filter(sexo == "m") |>
   select(-sexo)
 
-usethis::use_data(ufrn_mun_male_pop, overwrite = TRUE, compress = "xz")
+#usethis::use_data(ufrn_mun_male_pop, overwrite = TRUE, compress = "xz")
+saveRDS(
+  object = ufrn_mun_male_pop,
+  file = "data-raw/ufrn_mun_male_pop.rds",
+  compress = "xz"
+)
+

@@ -7,11 +7,21 @@ load(file = "data-raw/datasus/mun_female_pop.rda")
 datasus_mun_female_pop <- mun_female_pop |>
   rename(code_muni = mun)
 
-usethis::use_data(datasus_mun_female_pop, overwrite = TRUE, compress = "xz")
+#usethis::use_data(datasus_mun_female_pop, overwrite = TRUE, compress = "xz")
+saveRDS(
+  object = datasus_mun_female_pop,
+  file = "data-raw/datasus_mun_female_pop.rds",
+  compress = "xz"
+)
 
 load(file = "data-raw/datasus/mun_male_pop.rda")
 
 datasus_mun_male_pop <- mun_male_pop |>
   rename(code_muni = mun)
 
-usethis::use_data(datasus_mun_male_pop, overwrite = TRUE, compress = "xz")
+#usethis::use_data(datasus_mun_male_pop, overwrite = TRUE, compress = "xz")
+saveRDS(
+  object = datasus_mun_male_pop,
+  file = "data-raw/datasus_mun_male_pop.rds",
+  compress = "xz"
+)
