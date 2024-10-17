@@ -10,4 +10,7 @@
 #'   \item{age_group}{age group}
 #'   \item{pop}{population estimative}
 #' }
-"datasus_mun_female_pop"
+datasus_mun_female_pop <- function(){
+  path <- zendown::zen_file(deposit_id = zenodo_deposit, file_name = "datasus_mun_female_pop.rds")
+  readRDS(file = path)
+}

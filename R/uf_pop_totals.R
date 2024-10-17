@@ -16,11 +16,11 @@ uf_pop_totals <- function(source = "datasus"){
 
   # Estimates source
   if(source == "datasus"){
-    mun_male_pop <- brpop::datasus_mun_male_pop
-    mun_female_pop <- brpop::datasus_mun_female_pop
+    mun_male_pop <- datasus_mun_male_pop()
+    mun_female_pop <- datasus_mun_female_pop()
   } else if(source == "ufrn"){
-    mun_male_pop <- brpop::ufrn_mun_male_pop
-    mun_female_pop <- brpop::ufrn_mun_female_pop
+    mun_male_pop <- ufrn_mun_male_pop()
+    mun_female_pop <- ufrn_mun_female_pop()
   }
 
   if(source == "datasus" | source == "ufrn"){
@@ -34,7 +34,7 @@ uf_pop_totals <- function(source = "datasus"){
       dplyr::arrange(.data$uf, .data$year, .data$pop) %>%
       tibble::as_tibble()
   } else if (source == "ibge"){
-    res <- brpop::ibge_pop %>%
+    res <- ibge_pop() %>%
       dplyr::mutate(uf = substr(.data$code_muni, 0, 2)) %>%
       dtplyr::lazy_dt() %>%
       dplyr::group_by(.data$uf, .data$year) %>%
