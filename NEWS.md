@@ -1,3 +1,6 @@
+# brpop 0.5.0
+* Move data files to Zenodo and use {zendown} package to handle file download. This will keep the package smaller for future CRAN versions.
+
 # brpop 0.4.1
 * Add IBGE population estimates for 2023 and 2024.
 
