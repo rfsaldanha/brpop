@@ -2,8 +2,8 @@ pandoc: 3.1.11
 pkgdown: 2.1.1
 pkgdown_sha: ~
 articles:
-  articles/Population-estimates-comparison-v2: Population-estimates-comparison-v2.html
-last_built: 2024-10-17T10:38Z
+  articles/Population-estimates-comparison: Population-estimates-comparison.html
+last_built: 2024-10-17T10:42Z
 urls:
   reference: https://rfsaldanha.github.io/brpop/reference
   article: https://rfsaldanha.github.io/brpop/articles
