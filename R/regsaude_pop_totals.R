@@ -27,12 +27,12 @@ regsaude_pop_totals <- function(type = "standard", source = "datasus"){
       tibble::as_tibble()
   } else if(source == "ibge"){
     if(type == "standard"){
-      tmp <- brpop::ibge_pop %>%
+      tmp <- ibge_pop() %>%
         dplyr::mutate(code_muni = as.numeric(substr(.data$code_muni, 0, 6))) %>%
         dplyr::left_join(brpop::mun_reg_saude,
                               by = "code_muni")
     } else if(type == "reg_saude_449"){
-      tmp <- brpop::ibge_pop %>%
+      tmp <- ibge_pop() %>%
         dplyr::mutate(code_muni = as.numeric(substr(.data$code_muni, 0, 6))) %>%
         dplyr::left_join(brpop::mun_reg_saude_449,
                               by = "code_muni")

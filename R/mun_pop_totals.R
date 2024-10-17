@@ -33,7 +33,7 @@ mun_pop_totals <- function(source = "datasus"){
       dplyr::arrange(.data$code_muni, .data$year) %>%
       tibble::as_tibble()
   } else if(source == "ibge"){
-    res <- brpop::ibge_pop
+    res <- ibge_pop()
   }
 
   return(res)
