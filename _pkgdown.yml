@@ -3,28 +3,26 @@ template:
   bootstrap: 5
   params:
     ganalytics: G-2M7VLSRDCB
-
 navbar:
   structure:
-    right: [github]
-
+    right: github
 reference:
-- title: "Population datasets"
-  desc: "Population estimates datasets available at the package."
+- title: Population datasets
+  desc: Population estimates datasets available at the package.
   contents:
   - datasus_mun_female_pop
   - datasus_mun_male_pop
   - ufrn_mun_female_pop
   - ufrn_mun_male_pop
   - ibge_pop
-- title: "Totals"
-  desc: "Functions to return the total population per year and geographical unit."
+- title: Totals
+  desc: Functions to return the total population per year and geographical unit.
   contents:
   - mun_pop_totals
   - regsaude_pop_totals
   - uf_pop_totals
-- title: "Totals by sex"
-  desc: "Functions to return the total population per year, geographical unit and sex."
+- title: Totals by sex
+  desc: Functions to return the total population per year, geographical unit and sex.
   contents:
   - mun_female_pop_totals
   - mun_male_pop_totals
@@ -32,21 +30,24 @@ reference:
   - regsaude_male_pop_totals
   - uf_female_pop_totals
   - uf_male_pop_totals
-- title: "Totals by age group"
-  desc: "Functions to return the total population per year, geographical unit and age group."
+- title: Totals by age group
+  desc: Functions to return the total population per year, geographical unit and age
+    group.
   contents:
   - mun_pop_age
   - regsaude_pop_age
   - uf_pop_age
   - regsaude_female_pop
   - regsaude_male_pop
-- title: "Totals by sex and age group"
-  desc: "Functions to return the total population per year, geographical unit, sex and age group."
+- title: Totals by sex and age group
+  desc: Functions to return the total population per year, geographical unit, sex
+    and age group.
   contents:
   - mun_sex_pop
   - regsaude_sex_pop
   - uf_sex_pop
-- title: "Municipality and health region conversion tables"
+- title: Municipality and health region conversion tables
   contents:
   - mun_reg_saude
   - mun_reg_saude_449
+
