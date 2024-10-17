@@ -21,4 +21,7 @@
 #'   \item{year}{year}
 #'   \item{pop}{population}
 #' }
-"ibge_pop"
+ibge_pop <- function(){
+  path <- zendown::zen_file(deposit_id = zenodo_deposit, file_name = "ibge_pop.rds")
+  readRDS(file = path)
+}
