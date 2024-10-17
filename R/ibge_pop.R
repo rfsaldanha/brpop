@@ -2,7 +2,7 @@
 #'
 #' A dataset containing total population estimates for Brazilian municipalities from IBGE estimates, Census and population inquiries. This dataset does not contain breakdowns by age groups or sex.
 #'
-#' The population data was downloaded from the IBGE's SIDRA service.
+#' The population data was downloaded from the IBGE's SIDRA service and IBGE's FTP server.
 #'
 #' Population data for the years of 2000 and 2010 were obtained from Census, SIDRA table 202 (<https://sidra.ibge.gov.br/Tabela/202>).
 #'
@@ -10,7 +10,11 @@
 #'
 #' Population data for the year of 2007 was obtained from Population Inquiry, SIDRA table 793 (<https://sidra.ibge.gov.br/Tabela/793>).
 #'
-#' Population data for the years of 2001 to 2006, 2008, 2009, 2011 to 2021 were obtained from Population Inquiry, SIDRA table 6579 (<https://sidra.ibge.gov.br/Tabela/6579>).
+#' Population data for the years of 2001 to 2006, 2008, 2009, 2011 to 2021 were obtained from Population Inquiry, SIDRA table 6579 (<https://sidra.ibge.gov.br/Tabela/6579>), including update from 2024-06-24.
+#' 
+#' Population data for 2023 are the estimates sent to TCU. The values are equal to Census 2022.
+#' 
+#' Population data for 2024 are the estimates sent to DOU.
 #'
 #' \describe{
 #'   \item{code_muni}{municipality 7 digits code}
