@@ -11,6 +11,8 @@ knitr::opts_chunk$set(
 
 On this article, we will compare the population estimates available at the `brpop` package.
 
+Currently, the package present population estimates by municipalities, sex and age groups computed by the DataSUS (Brazilian Health Ministry) and by the UFRN-PPGDEM-LEPP laboratory. The package also have the total estimates computed by IBGE for inter-census years, and population data for Census and population inquiries years.
+
 ```{r setup, message=FALSE}
 library(dplyr)
 library(tibble)
@@ -28,9 +30,6 @@ names_helper <- tibble(
   cap_name = c("Porto Velho","Rio Branco","Manaus","Boa Vista","Belém","Macapá","Palmas","São Luís","Teresina","Fortaleza","Natal","João Pessoa","Recife","Maceió","Aracaju","Salvador","Belo Horizonte","Vitória","Rio de Janeiro","São Paulo","Curitiba","Florianópolis","Porto Alegre","Campo Grande","Cuiabá","Goiânia","Brasília")
 )
 ```
-
-
-Currently, the package present population estimates by municipalities, sex and age groups computed by the DataSUS (Brazilian Health Ministry) and by the UFRN-PPGDEM-LEPP laboratory. The package also have the total estimates computed by IBGE for inter-census years, and population data for Census and population inquiries years.
 
 ## Total population per UF
 
