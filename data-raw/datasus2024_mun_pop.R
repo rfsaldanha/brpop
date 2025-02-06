@@ -19,14 +19,14 @@ rm(files)
 # Format
 pop <- pop_raw |>
   rename(
-    codmun = COD_MUN,
+    code_muni = COD_MUN,
     year = ANO,
     sex = SEXO,
     age = IDADE,
     pop = POP
   ) |>
   mutate(
-    codmun = as.numeric(as.character(codmun)),
+    code_muni = as.numeric(as.character(code_muni)),
     year = as.numeric(as.character(year)),
     sex = as.character(sex),
     age = as.numeric(as.character(age))
@@ -53,14 +53,14 @@ pop <- pop_raw |>
       .default = NA
     )
   ) |>
-  group_by(codmun, year, sex, age_group) |>
+  group_by(code_muni, year, sex, age_group) |>
   summarise(pop = sum(pop, na.rm = TRUE)) |>
   ungroup()
 
 rm(pop_raw)
 
 pop_totals <- pop |>
-  group_by(codmun, year, sex, pop) |>
+  group_by(code_muni, year, sex, pop) |>
   summarise(pop = sum(pop, na.rm = TRUE)) |>
   ungroup() |>
   mutate(age_group = "Total")
