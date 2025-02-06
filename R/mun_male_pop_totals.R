@@ -12,13 +12,15 @@
 
 mun_male_pop_totals <- function(source = "datasus"){
   # Assertions
-  checkmate::assert_choice(x = source, choices = c("datasus", "ufrn"))
+  checkmate::assert_choice(x = source, choices = c("datasus", "ufrn", "datasus2024"))
 
   # Estimates source
   if(source == "datasus"){
     mun_male_pop <- datasus_mun_male_pop()
   } else if(source == "ufrn"){
     mun_male_pop <- ufrn_mun_male_pop()
+  } else if (source == "datasus2024"){
+    mun_male_pop <- datasus2024_mun_male_pop()
   }
 
   res <- mun_male_pop %>%
