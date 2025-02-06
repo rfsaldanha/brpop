@@ -59,6 +59,14 @@ pop <- pop_raw |>
 
 rm(pop_raw)
 
+pop_totals <- pop |>
+  group_by(codmun, year, sex, pop) |>
+  summarise(pop = sum(pop, na.rm = TRUE)) |>
+  ungroup() |>
+  mutate(age_group = "Total")
+
+pop <- bind_rows(pop, pop_totals)
+
 pop_male <- filter(pop, sex == 1) |>
   select(-sex)
 
