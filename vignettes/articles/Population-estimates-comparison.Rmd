@@ -11,7 +11,7 @@ knitr::opts_chunk$set(
 
 On this article, we will compare the population estimates available at the `brpop` package.
 
-Currently, the package present population estimates by municipalities, sex and age groups computed by the DataSUS (Brazilian Health Ministry) and by the UFRN-PPGDEM-LEPP laboratory. The package also have the total estimates computed by IBGE for inter-census years, and population data for Census and population inquiries years.
+Currently, the package present population estimates by municipalities, sex and age groups computed by the DataSUS (Brazilian Health Ministry) old and news estimates and by the UFRN-PPGDEM-LEPP laboratory. The package also have the total estimates computed by IBGE for inter-census years, and population data for Census and population inquiries years.
 
 ```{r setup, message=FALSE}
 library(dplyr)
@@ -33,18 +33,21 @@ names_helper <- tibble(
 
 ## Total population per UF
 
-First, we will compare the total population estimates, using the `brpop` functions to aggregate the estimates per UF.
-
 ```{r uf-plot, fig.height=30, fig.width=10}
 datasus_pop_uf <- uf_pop_totals(source = "datasus") |>
   mutate(source = "DataSUS") |>
   filter(uf != "5e")
+
 ufrn_pop_uf <- uf_pop_totals(source = "ufrn") |>
   mutate(source = "UFRN")
+
 ibge_pop_uf <- uf_pop_totals(source = "ibge") |>
   mutate(source = "IBGE")
 
-bind_rows(datasus_pop_uf, ufrn_pop_uf, ibge_pop_uf) |>
+datasus2024_pop_uf <- uf_pop_totals(source = "datasus2024") |>
+  mutate(source = "DataSUS 2024")
+
+bind_rows(datasus_pop_uf, ufrn_pop_uf, ibge_pop_uf, datasus2024_pop_uf) |>
   left_join(names_helper, by = c("uf" = "uf_code")) |>
   ggplot(aes(x = year, y = pop, color = source, group = source)) +
   geom_line(stat = "identity", alpha = .7, lwd = 1) +
@@ -58,11 +61,7 @@ bind_rows(datasus_pop_uf, ufrn_pop_uf, ibge_pop_uf) |>
        color = "Source", x = "Year", y = "Population estimate")
 ```
 
-It can be observed that the estimates from DataSUS and UFRN generally agrees on tendency and present an overlapping period (2010 - 2021) with similar values. The IBGE population estimates present a more erratic pattern at some UFs. 
-
 ## Total population per capitals
-
-Now let's look at capitals data.
 
 ```{r cap-plot, fig.height=30, fig.width=10}
 datasus_pop_mun <- mun_pop_totals(source = "datasus") |>
@@ -77,8 +76,11 @@ ibge_pop_mun <- mun_pop_totals(source = "ibge") |>
   mutate(source = "IBGE") |>
   right_join(names_helper, by = c("code_muni" = "cap_code7"))
 
+datasus2024_pop_mun <- mun_pop_totals(source = "datasus2024") |>
+  mutate(source = "DataSUS 2024") |>
+  right_join(names_helper, by = c("code_muni" = "cap_code7"))
 
-bind_rows(datasus_pop_mun, ufrn_pop_mun, ibge_pop_mun) |>
+bind_rows(datasus_pop_mun, ufrn_pop_mun, ibge_pop_mun, datasus2024_pop_mun) |>
   ggplot(aes(x = year, y = pop, color = source, group = source)) +
   geom_line(stat = "identity", alpha = .7, lwd = 1) +
   geom_vline(xintercept = c(2000, 2010, 2022), alpha = .5, linetype = "longdash") +
@@ -90,8 +92,6 @@ bind_rows(datasus_pop_mun, ufrn_pop_mun, ibge_pop_mun) |>
        subtitle = "in 100,000 units",
        color = "Source", x = "Year", y = "Population estimate")
 ```
-
-At the municipal level, the population estimates for the capitals presents more variability. At some capitals, the estimates from DataSUS and UFRN does not converge on the overlapping period. The IBGE estimates also present a more erratic pattern on some capitals.
 
 ## Session info
 
