@@ -2,7 +2,7 @@ Package: brpop
 Title: Brazilian Population Estimatives
 Version: 0.6.0
 Authors@R: 
-    person("Raphael", "Saldanha", , "raphael.de-freitas-saldanha@inria.fr", role = c("aut", "cre"),
+    person("Raphael", "Saldanha", , "raphael.saldanha@fiocruz.br", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0003-0652-8466"))
 Description: Functions to handle and aggregate population estimates for Brazilian municipalities by sex and age groups.
 License: MIT + file LICENSE
