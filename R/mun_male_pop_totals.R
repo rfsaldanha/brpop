@@ -2,7 +2,7 @@
 #'
 #' This function provides a tibble containing male population estimates for Brazilian municipalities totals.
 #'
-#' @param source character. `datasus` for Brazilian Health Ministry estimates, or `ufrn` for UFRN-DEM-LEPP estimates.
+#' @param source character. `datasus` for Brazilian Health Ministry old estimates (2000 to 2021), `datasus2024` for Brazilian Health Ministry new estimates (2000 to 2024), or `ufrn` for UFRN-DEM-LEPP estimates (2010 to 2030).
 #'
 #' @returns A tibble.
 #' @seealso [datasus_mun_male_pop], [ufrn_mun_male_pop].
