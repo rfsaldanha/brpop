@@ -3,7 +3,7 @@
 #' This function provides a tibble containing total population estimates for Brazilian health regions.
 #'
 #' @param type character. 'standard' or 'reg_saude_449'
-#' @param source character. `datasus` for Brazilian Health Ministry estimates (2000 to 2021), `ufrn` for UFRN-DEM-LEPP estimates (2010 to 2030), or `ibge` for IBGE estimates (2000 to 2022).
+#' @param source character. `datasus` for Brazilian Health Ministry old estimates (2000 to 2021), `datasus2024` for Brazilian Health Ministry new estimates (2000 to 2024), `ufrn` for UFRN-DEM-LEPP estimates (2010 to 2030), or `ibge` for IBGE estimates (2000 to 2022).
 #'
 #' @returns A tibble.
 #' @seealso [regsaude_male_pop], [regsaude_female_pop], [ibge_pop].
@@ -14,9 +14,9 @@
 regsaude_pop_totals <- function(type = "standard", source = "datasus"){
   # Assertions
   checkmate::assert_choice(x = type, choices = c("standard", "reg_saude_449"))
-  checkmate::assert_choice(x = source, choices = c("datasus", "ufrn", "ibge"))
+  checkmate::assert_choice(x = source, choices = c("datasus", "ufrn", "ibge", "datasus2024"))
 
-  if(source == "datasus" | source == "ufrn"){
+  if(source == "datasus" | source == "datasus2024" | source == "ufrn"){
     res <- dplyr::bind_rows(regsaude_male_pop_totals(type = type, source = source),
                           regsaude_female_pop_totals(type = type, source = source)) %>%
       dtplyr::lazy_dt() %>%

@@ -17,7 +17,7 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Raphael Saldanha \email{raphael.de-freitas-saldanha@inria.fr} (\href{https://orcid.org/0000-0003-0652-8466}{ORCID})
+\strong{Maintainer}: Raphael Saldanha \email{raphael.saldanha@fiocruz.br} (\href{https://orcid.org/0000-0003-0652-8466}{ORCID})
 
 }
 \keyword{internal}

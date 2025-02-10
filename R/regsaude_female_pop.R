@@ -3,7 +3,7 @@
 #' This function provides a tibble containing female population estimates for Brazilian health regions per age groups.
 #'
 #' @param type character. 'standard' or 'reg_saude_449'
-#' @param source character. `datasus` for Brazilian Health Ministry estimates, or `ufrn` for UFRN-DEM-LEPP estimates.
+#' @param source character. `datasus` for Brazilian Health Ministry old estimates (2000 to 2021), `datasus2024` for Brazilian Health Ministry new estimates (2000 to 2024), or `ufrn` for UFRN-DEM-LEPP estimates (2010 to 2030).
 #'
 #' @returns A tibble.
 #' @seealso [datasus_mun_female_pop], [ufrn_mun_female_pop].
@@ -13,7 +13,7 @@
 regsaude_female_pop <- function(type = "standard", source = "datasus"){
   # Assertions
   checkmate::assert_choice(x = type, choices = c("standard", "reg_saude_449"))
-  checkmate::assert_choice(x = source, choices = c("datasus", "ufrn"))
+  checkmate::assert_choice(x = source, choices = c("datasus", "ufrn", "datasus2024"))
 
   # Estimates source
   if(source == "datasus"){
@@ -21,6 +21,8 @@ regsaude_female_pop <- function(type = "standard", source = "datasus"){
   } else if(source == "ufrn"){
     mun_female_pop <- ufrn_mun_female_pop() %>%
       dplyr::mutate(code_muni = as.numeric(substr(.data$code_muni, 0, 6)))
+  } else if(source == "datasus2024"){
+    mun_female_pop <- datasus2024_mun_female_pop()
   }
 
   if(type == "standard"){

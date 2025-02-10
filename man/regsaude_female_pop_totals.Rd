@@ -9,7 +9,7 @@ regsaude_female_pop_totals(type = "standard", source = "datasus")
 \arguments{
 \item{type}{character. 'standard' or 'reg_saude_449'}
 
-\item{source}{character. \code{datasus} for Brazilian Health Ministry estimates, or \code{ufrn} for UFRN-DEM-LEPP estimates.}
+\item{source}{character. \code{datasus} for Brazilian Health Ministry old estimates (2000 to 2021), \code{datasus2024} for Brazilian Health Ministry new estimates (2000 to 2024), or \code{ufrn} for UFRN-DEM-LEPP estimates (2010 to 2030).}
 }
 \value{
 A tibble.
