@@ -1,3 +1,8 @@
+# brpop 0.6.0
+
+* Add DataSUS new population estimates (2000 - 2024) source option to all functions
+* Improve documentation with timespan estimates of all sources
+
 # brpop 0.5.0
 * Move data files to Zenodo and use {zendown} package to handle file download. This will keep the package smaller for future CRAN versions.
 
