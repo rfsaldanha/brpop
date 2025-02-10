@@ -12,6 +12,8 @@ reference:
   contents:
   - datasus_mun_female_pop
   - datasus_mun_male_pop
+  - datasus2024_mun_female_pop
+  - datasus2024_mun_male_pop
   - ufrn_mun_female_pop
   - ufrn_mun_male_pop
   - ibge_pop
