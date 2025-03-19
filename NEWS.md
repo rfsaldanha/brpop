@@ -1,3 +1,6 @@
+# brpop 0.6.1
+* Add argument `sex` to `mum_pop_age()`, `regsaude_pop_age()` and `uf_pop_age()` functions to subset population based on sex.
+
 # brpop 0.6.0
 
 * Add DataSUS new population estimates (2000 - 2024) source option to all functions
