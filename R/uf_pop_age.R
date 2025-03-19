@@ -3,6 +3,7 @@
 #' This function provides a tibble containing population estimates for Brazilian UFs ("Unidades Federativas") per age groups.
 #'
 #' @param source character. `datasus` for Brazilian Health Ministry old estimates (2000 to 2021), `datasus2024` for Brazilian Health Ministry new estimates (2000 to 2024), or `ufrn` for UFRN-DEM-LEPP estimates (2010 to 2030).
+#' @param sex character. `all` for all population, `male` for male population, `female` for female population. Defaults for `all`.
 #'
 #' @returns A tibble.
 #' @seealso [datasus_mun_male_pop], [datasus_mun_female_pop], [ufrn_mun_male_pop], [ufrn_mun_female_pop].
@@ -10,23 +11,37 @@
 #' @importFrom rlang .data
 #' @export
 
-uf_pop_age <- function(source = "datasus"){
+uf_pop_age <- function(source = "datasus", sex = "all") {
   # Assertions
-  checkmate::assert_choice(x = source, choices = c("datasus", "ufrn", "datasus2024"))
+  checkmate::assert_choice(
+    x = source,
+    choices = c("datasus", "ufrn", "datasus2024")
+  )
+  checkmate::assert_choice(x = sex, choices = c("all", "female", "male"))
 
   # Estimates source
-  if(source == "datasus"){
+  if (source == "datasus") {
     mun_male_pop <- datasus_mun_male_pop()
     mun_female_pop <- datasus_mun_female_pop()
-  } else if(source == "ufrn"){
+  } else if (source == "ufrn") {
     mun_male_pop <- ufrn_mun_male_pop()
     mun_female_pop <- ufrn_mun_female_pop()
-  } else if(source == "datasus2024"){
+  } else if (source == "datasus2024") {
     mun_male_pop <- datasus2024_mun_male_pop()
     mun_female_pop <- datasus2024_mun_female_pop()
   }
 
-  res <- dplyr::bind_rows(mun_male_pop, mun_female_pop) %>%
+  # All population or by sex
+  if (sex == "all") {
+    res <- dplyr::bind_rows(mun_male_pop, mun_female_pop)
+  } else if (sex == "male") {
+    res <- mun_male_pop
+  } else if (sex == "female") {
+    res <- mun_female_pop
+  }
+
+  # Summarise
+  res <- res %>%
     dplyr::mutate(uf = substr(.data$code_muni, 0, 2)) %>%
     dtplyr::lazy_dt() %>%
     dplyr::group_by(.data$uf, .data$year, .data$age_group) %>%

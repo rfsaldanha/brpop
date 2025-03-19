@@ -4,12 +4,14 @@
 \alias{regsaude_pop_age}
 \title{Health region yearly population estimates per age group}
 \usage{
-regsaude_pop_age(type = "standard", source = "datasus")
+regsaude_pop_age(type = "standard", source = "datasus", sex = "all")
 }
 \arguments{
 \item{type}{character. 'standard' or 'reg_saude_449'}
 
 \item{source}{character. \code{datasus} for Brazilian Health Ministry old estimates (2000 to 2021), \code{datasus2024} for Brazilian Health Ministry new estimates (2000 to 2024), or \code{ufrn} for UFRN-DEM-LEPP estimates (2010 to 2030).}
+
+\item{sex}{character. \code{all} for all population, \code{male} for male population, \code{female} for female population. Defaults for \code{all}.}
 }
 \value{
 A tibble.
