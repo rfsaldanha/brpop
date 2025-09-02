@@ -1,3 +1,5 @@
+# brpop 0.6.3
+
 # brpop 0.6.2
 * On Internet connection problems to download the required data, the package functions will not present errors but fail gracefully with an informative message, attending CRAN requirements. 
 
