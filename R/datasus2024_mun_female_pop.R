@@ -10,7 +10,19 @@
 #'   \item{age_group}{age group}
 #'   \item{pop}{population estimative}
 #' }
-datasus2024_mun_female_pop <- function(){
-  path <- zendown::zen_file(deposit_id = zenodo_deposit, file_name = "datasus2024_mun_female_pop.rds")
+datasus2024_mun_female_pop <- function() {
+  path <- tryCatch(
+    {
+      zendown::zen_file(
+        deposit_id = zenodo_deposit,
+        file_name = "datasus2024_mun_female_pop.rds"
+      )
+    },
+    error = function(cond) {
+      message(zendown_error_message)
+      message(conditionMessage(cond))
+    }
+  )
+
   readRDS(file = path)
 }
