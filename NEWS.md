@@ -1,3 +1,6 @@
+# brpop 0.6.2
+* On Internet connection problems to download the required data, the package functions will not present errors but fail gracefully with an informative message, attending CRAN requirements. 
+
 # brpop 0.6.1
 * Add argument `sex` to `mum_pop_age()`, `regsaude_pop_age()` and `uf_pop_age()` functions to subset population based on sex.
 
