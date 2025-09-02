@@ -10,27 +10,40 @@
 #'
 #' @importFrom rlang .data
 
-regsaude_male_pop <- function(type = "standard", source = "datasus"){
+regsaude_male_pop <- function(type = "standard", source = "datasus") {
   # Assertions
   checkmate::assert_choice(x = type, choices = c("standard", "reg_saude_449"))
-  checkmate::assert_choice(x = source, choices = c("datasus", "ufrn", "datasus2024"))
+  checkmate::assert_choice(
+    x = source,
+    choices = c("datasus", "ufrn", "datasus2024")
+  )
 
   # Estimates source
-  if(source == "datasus"){
+  if (source == "datasus") {
     mun_male_pop <- datasus_mun_male_pop()
-  } else if(source == "ufrn"){
+  } else if (source == "ufrn") {
     mun_male_pop <- ufrn_mun_male_pop() %>%
       dplyr::mutate(code_muni = as.numeric(substr(.data$code_muni, 0, 6)))
-  } else if(source == "datasus2024"){
+  } else if (source == "datasus2024") {
     mun_male_pop <- datasus2024_mun_male_pop()
   }
 
-  if(type == "standard"){
-    res <- dplyr::left_join(mun_male_pop, brpop::mun_reg_saude,
-                            by = "code_muni")
-  } else if(type == "reg_saude_449"){
-    res <- dplyr::left_join(mun_male_pop, brpop::mun_reg_saude_449,
-                            by = "code_muni")
+  if (is.null(mun_male_pop)) {
+    return(NULL)
+  }
+
+  if (type == "standard") {
+    res <- dplyr::left_join(
+      mun_male_pop,
+      brpop::mun_reg_saude,
+      by = "code_muni"
+    )
+  } else if (type == "reg_saude_449") {
+    res <- dplyr::left_join(
+      mun_male_pop,
+      brpop::mun_reg_saude_449,
+      by = "code_muni"
+    )
   }
 
   res <- dtplyr::lazy_dt(x = res) %>%

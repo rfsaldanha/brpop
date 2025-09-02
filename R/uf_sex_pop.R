@@ -10,20 +10,27 @@
 #' @importFrom rlang .data
 #' @export
 
-uf_sex_pop <- function(source = "datasus"){
+uf_sex_pop <- function(source = "datasus") {
   # Assertions
-  checkmate::assert_choice(x = source, choices = c("datasus", "ufrn", "datasus2024"))
+  checkmate::assert_choice(
+    x = source,
+    choices = c("datasus", "ufrn", "datasus2024")
+  )
 
   # Estimates source
-  if(source == "datasus"){
+  if (source == "datasus") {
     mun_male_pop <- datasus_mun_male_pop()
     mun_female_pop <- datasus_mun_female_pop()
-  } else if(source == "ufrn"){
+  } else if (source == "ufrn") {
     mun_male_pop <- ufrn_mun_male_pop()
     mun_female_pop <- ufrn_mun_female_pop()
-  } else if(source == "datasus2024"){
+  } else if (source == "datasus2024") {
     mun_male_pop <- datasus2024_mun_male_pop()
     mun_female_pop <- datasus2024_mun_female_pop()
+  }
+
+  if (any(is.null(mun_male_pop), is.null(mun_female_pop))) {
+    return(NULL)
   }
 
   male <- mun_male_pop %>%

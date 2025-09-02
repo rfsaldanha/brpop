@@ -31,6 +31,10 @@ uf_pop_age <- function(source = "datasus", sex = "all") {
     mun_female_pop <- datasus2024_mun_female_pop()
   }
 
+  if (any(is.null(mun_male_pop), is.null(mun_female_pop))) {
+    return(NULL)
+  }
+
   # All population or by sex
   if (sex == "all") {
     res <- dplyr::bind_rows(mun_male_pop, mun_female_pop)

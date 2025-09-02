@@ -10,23 +10,30 @@
 #' @importFrom rlang .data
 #' @export
 
-uf_pop_totals <- function(source = "datasus"){
+uf_pop_totals <- function(source = "datasus") {
   # Assertions
-  checkmate::assert_choice(x = source, choices = c("datasus", "ufrn", "ibge", "datasus2024"))
+  checkmate::assert_choice(
+    x = source,
+    choices = c("datasus", "ufrn", "ibge", "datasus2024")
+  )
 
   # Estimates source
-  if(source == "datasus"){
+  if (source == "datasus") {
     mun_male_pop <- datasus_mun_male_pop()
     mun_female_pop <- datasus_mun_female_pop()
-  } else if(source == "ufrn"){
+  } else if (source == "ufrn") {
     mun_male_pop <- ufrn_mun_male_pop()
     mun_female_pop <- ufrn_mun_female_pop()
-  } else if(source == "datasus2024"){
+  } else if (source == "datasus2024") {
     mun_male_pop <- datasus2024_mun_male_pop()
     mun_female_pop <- datasus2024_mun_female_pop()
   }
 
-  if(source == "datasus" | source == "datasus2024" | source == "ufrn"){
+  if (any(is.null(mun_male_pop), is.null(mun_female_pop))) {
+    return(NULL)
+  }
+
+  if (source == "datasus" | source == "datasus2024" | source == "ufrn") {
     res <- dplyr::bind_rows(mun_male_pop, mun_female_pop) %>%
       dplyr::filter(.data$age_group == "Total") %>%
       dplyr::mutate(uf = substr(.data$code_muni, 0, 2)) %>%
@@ -36,7 +43,7 @@ uf_pop_totals <- function(source = "datasus"){
       dplyr::ungroup() %>%
       dplyr::arrange(.data$uf, .data$year, .data$pop) %>%
       tibble::as_tibble()
-  } else if (source == "ibge"){
+  } else if (source == "ibge") {
     res <- ibge_pop() %>%
       dplyr::mutate(uf = substr(.data$code_muni, 0, 2)) %>%
       dtplyr::lazy_dt() %>%
@@ -46,7 +53,6 @@ uf_pop_totals <- function(source = "datasus"){
       dplyr::arrange(.data$uf, .data$year, .data$pop) %>%
       tibble::as_tibble()
   }
-
 
   return(res)
 }
