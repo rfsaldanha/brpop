@@ -13,8 +13,8 @@ A tibble with 5,571 rows and 2 variables:
 }
 \source{
 The 2025 assignment of Boa Esperança do Norte to the Teles Pires
-health region is documented by the Mato Grosso State Health Department:
-\url{https://www.saude.mt.gov.br/storage/files/4OzLDdpSPbEGxwtMA0uT9gFIMNGYpgZdZRjEng2X.pdf}.
+health region is documented by the Mato Grosso State Health Department,
+CIB/MT Resolution No. 143 of 22 May 2025.
 }
 \usage{
 mun_reg_saude_449

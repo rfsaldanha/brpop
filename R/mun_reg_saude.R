@@ -8,6 +8,6 @@
 #'   \item{codi_reg_saude}{health region 4 digits code}
 #' }
 #' @source The 2025 assignment of Boa Esperança do Norte to the Teles Pires
-#'   health region is documented by the Mato Grosso State Health Department:
-#'   <https://www.saude.mt.gov.br/storage/files/4OzLDdpSPbEGxwtMA0uT9gFIMNGYpgZdZRjEng2X.pdf>.
+#'   health region is documented by the Mato Grosso State Health Department,
+#'   CIB/MT Resolution No. 143 of 22 May 2025.
 "mun_reg_saude"
