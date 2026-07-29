@@ -5,14 +5,14 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Brazilian Population Estimatives • brpop</title>
+<title>Brazilian Population Estimates • brpop</title>
 <script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
+<link href="deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet">
+<script src="deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Brazilian Population Estimatives">
-<meta name="description" content="Functions to handle and aggregate population estimates for Brazilian municipalities by sex and age groups.">
-<meta property="og:description" content="Functions to handle and aggregate population estimates for Brazilian municipalities by sex and age groups.">
+<script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Brazilian Population Estimates">
+<meta name="description" content="Provides Brazilian municipality population estimates from official and research sources, with functions to aggregate the data by state, health region, sex, and age group.">
+<meta property="og:description" content="Provides Brazilian municipality population estimates from official and research sources, with functions to aggregate the data by state, health region, sex, and age group.">
 <!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-2M7VLSRDCB"></script><script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -29,7 +29,7 @@
 
     <a class="navbar-brand me-2" href="index.html">brpop</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.6.3</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.7.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,12 +42,15 @@
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
-<li><a class="dropdown-item" href="articles/Population-estimates-comparison.html">Population estimates comparison</a></li>
+<li><a class="dropdown-item" href="articles/Population-estimates-comparison.html">Comparing population-estimate sources</a></li>
   </ul>
 </li>
 <li class="nav-item"><a class="nav-link" href="news/index.html">Changelog</a></li>
       </ul>
 <ul class="navbar-nav">
+<li class="nav-item"><form class="form-inline" role="search">
+ <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="search.json">
+</form></li>
 <li class="nav-item"><a class="external-link nav-link" href="https://github.com/rfsaldanha/brpop/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
       </ul>
 </div>
@@ -62,25 +65,91 @@
 <!-- badges: start -->
 
 <!-- badges: end -->
-<p><code>brpop</code> is an <code>R</code> package that provides yearly Brazilian population estimates, aggregated by state, municipality, sex, and age groups. Those estimates are especially useful for calculating age and sex standardized disease rates.</p>
+<p><code>brpop</code> provides annual population estimates for Brazilian municipalities and functions to aggregate them by state (UF), health region, sex, and age group. These data are useful for denominators in demographic and epidemiological indicators, including age- and sex-standardized rates.</p>
+<div class="section level2">
+<h2 id="data-sources">Data sources<a class="anchor" aria-label="anchor" href="#data-sources"></a>
+</h2>
+<table style="width:100%;" class="table">
+<colgroup>
+<col width="23%">
+<col width="30%">
+<col width="23%">
+<col width="23%">
+</colgroup>
+<thead><tr>
+<th>Source</th>
+<th align="right">Years</th>
+<th>Detail</th>
+<th>Access</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>IBGE censuses, count, and annual estimates</td>
+<td align="right">2000–2025</td>
+<td>Municipality totals</td>
+<td>Bundled with the package</td>
+</tr>
+<tr>
+<td>DataSUS, original series</td>
+<td align="right">2000–2021</td>
+<td>Municipality, sex, and age group</td>
+<td>Downloaded from Zenodo</td>
+</tr>
+<tr>
+<td>DataSUS, revised series</td>
+<td align="right">2000–2024</td>
+<td>Municipality, sex, and age group</td>
+<td>Downloaded from Zenodo</td>
+</tr>
+<tr>
+<td>UFRN-PPGDem-LEPP</td>
+<td align="right">2010–2030</td>
+<td>Municipality, sex, and age group</td>
+<td>Downloaded from Zenodo</td>
+</tr>
+</tbody>
+</table>
+<p>The 2025 IBGE values are the revised municipal estimates sent to the TCU on 2026-01-13. The bundled IBGE series can therefore be used without an Internet connection. Larger sex- and age-specific files are hosted in the versioned <a href="https://doi.org/10.5281/zenodo.14826487" class="external-link"><code>brpop</code> Zenodo deposit</a> and cached locally by <code>zendown</code> after the first download.</p>
+</div>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>Stable release at CRAN.</p>
+<p>The package is being prepared for re-release on CRAN. Install the development version from GitHub with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"brpop"</span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rfsaldanha.github.io/brpop/">brpop</a></span><span class="op">)</span></span></code></pre></div>
-<p>Development version at GitHub.</p>
+<code class="sourceCode R"><span><span class="co"># install.packages("remotes")</span></span>
+<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"rfsaldanha/brpop"</span><span class="op">)</span></span></code></pre></div>
+<p>After the CRAN release, the stable version can be installed with:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"rfsaldanha/brpop"</span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rfsaldanha.github.io/brpop/">brpop</a></span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"brpop"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
-<h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
+<h2 id="quick-start">Quick start<a class="anchor" aria-label="anchor" href="#quick-start"></a>
 </h2>
-<p>The package provides population estimates by sex, age groups, municipalities and year from two sources: the <a href="http://tabnet.datasus.gov.br/cgi/IBGE/SEI_MS-0034745983-Nota_Tecnica_final.pdf" class="external-link">DataSUS estimates</a>, covering 2000 to 2021 and the <a href="https://demografiaufrn.net/projecao-populacional/" class="external-link">UFRN-PPGDEM-LEPP estimates</a>, covering from 2010 to 2030.</p>
-<p>The package also provide total population estimates by municipality and year from IBGE from 2000 to 2024.</p>
-<p>Along with the datasets, the package provide several functions to aggregate the estimates by state (UF) and health regions. Look at the <a href="https://rfsaldanha.github.io/brpop/reference/index.html">Reference</a> section for more details.</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rfsaldanha.github.io/brpop/">brpop</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Municipality totals from IBGE, including 2025</span></span>
+<span><span class="va">municipal</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/mun_pop_totals.html">mun_pop_totals</a></span><span class="op">(</span>source <span class="op">=</span> <span class="st">"ibge"</span><span class="op">)</span></span>
+<span><span class="va">municipal_2025</span> <span class="op">&lt;-</span> <span class="va">municipal</span><span class="op">[</span><span class="va">municipal</span><span class="op">$</span><span class="va">year</span> <span class="op">==</span> <span class="fl">2025</span>, <span class="op">]</span></span>
+<span></span>
+<span><span class="co"># State totals from the same source</span></span>
+<span><span class="va">state_2025</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/uf_pop_totals.html">uf_pop_totals</a></span><span class="op">(</span>source <span class="op">=</span> <span class="st">"ibge"</span><span class="op">)</span></span>
+<span><span class="va">state_2025</span> <span class="op">&lt;-</span> <span class="va">state_2025</span><span class="op">[</span><span class="va">state_2025</span><span class="op">$</span><span class="va">year</span> <span class="op">==</span> <span class="fl">2025</span>, <span class="op">]</span></span>
+<span></span>
+<span><span class="co"># Health-region totals using the 449-region specification</span></span>
+<span><span class="va">health_region_2025</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/regsaude_pop_totals.html">regsaude_pop_totals</a></span><span class="op">(</span></span>
+<span>  type <span class="op">=</span> <span class="st">"reg_saude_449"</span>,</span>
+<span>  source <span class="op">=</span> <span class="st">"ibge"</span></span>
+<span><span class="op">)</span></span>
+<span><span class="va">health_region_2025</span> <span class="op">&lt;-</span> <span class="va">health_region_2025</span><span class="op">[</span></span>
+<span>  <span class="va">health_region_2025</span><span class="op">$</span><span class="va">year</span> <span class="op">==</span> <span class="fl">2025</span>,</span>
+<span><span class="op">]</span></span></code></pre></div>
+<p>The established function names, arguments, source labels, and output column names are retained for compatibility with scripts written for earlier releases. See the <a href="https://rfsaldanha.github.io/brpop/reference/">function reference</a> for the complete API and source-specific year coverage.</p>
+</div>
+<div class="section level2">
+<h2 id="data-provenance">Data provenance<a class="anchor" aria-label="anchor" href="#data-provenance"></a>
+</h2>
+<p>IBGE source workbooks and the reproducible preparation scripts are kept in <a href="https://github.com/rfsaldanha/brpop/tree/main/data-raw" class="external-link"><code>data-raw</code></a>. The latest official municipal files are available from the <a href="https://ftp.ibge.gov.br/Estimativas_de_Populacao/Estimativas_2025/" class="external-link">IBGE 2025 download directory</a>.</p>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
@@ -119,7 +188,7 @@
 <h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
 <li><a href="https://CRAN.R-project.org/package=brpop" class="external-link"><img src="https://www.r-pkg.org/badges/version/brpop" alt="CRAN status"></a></li>
-<li><a href="https://cran.r-project.org/package=brpop" class="external-link"><img src="https://cranlogs.r-pkg.org/badges/brpop"></a></li>
+<li><a href="https://cran.r-project.org/package=brpop" class="external-link"><img src="https://cranlogs.r-pkg.org/badges/brpop" alt="CRAN downloads"></a></li>
 <li><a href="https://github.com/rfsaldanha/brpop/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/rfsaldanha/brpop/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
 </ul>
 </div>
@@ -133,7 +202,7 @@
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
 </div>
 
     </footer>

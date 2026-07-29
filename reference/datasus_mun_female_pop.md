@@ -1,0 +1,31 @@
+# Municipality yearly female population estimates per age group from 2000 to 2021
+
+A dataset containing female population estimates for Brazilian
+municipalities by age group from 2000 to 2021.
+
+## Usage
+
+``` r
+datasus_mun_female_pop()
+```
+
+## Details
+
+The estimates were computed by DataSUS (Brazilian Ministry of Health),
+manually downloaded from DataSUS website, and organized as a tibble.
+
+- code_muni:
+
+  municipality 6 digits code
+
+- year:
+
+  year of the estimate
+
+- age_group:
+
+  age group
+
+- pop:
+
+  population estimate

@@ -1,0 +1,177 @@
+# brpop: Brazilian population estimates
+
+`brpop` provides annual population estimates for Brazilian
+municipalities and functions to aggregate them by state (UF), health
+region, sex, and age group. These data are useful for denominators in
+demographic and epidemiological indicators, including age- and
+sex-standardized rates.
+
+## Data sources
+
+| Source | Years | Detail | Access |
+|----|---:|----|----|
+| IBGE censuses, count, and annual estimates | 2000–2025 | Municipality totals | Bundled with the package |
+| DataSUS, original series | 2000–2021 | Municipality, sex, and age group | Downloaded from Zenodo |
+| DataSUS, revised series | 2000–2024 | Municipality, sex, and age group | Downloaded from Zenodo |
+| UFRN-PPGDem-LEPP | 2010–2030 | Municipality, sex, and age group | Downloaded from Zenodo |
+
+The 2025 IBGE values are the revised municipal estimates sent to the TCU
+on 2026-01-13. The bundled IBGE series can therefore be used without an
+Internet connection. Larger sex- and age-specific files are hosted in
+the versioned [`brpop` Zenodo
+deposit](https://doi.org/10.5281/zenodo.14826487) and cached locally by
+`zendown` after the first download.
+
+## Installation
+
+The package is being prepared for re-release on CRAN. Install the
+development version from GitHub with:
+
+``` r
+
+# install.packages("remotes")
+remotes::install_github("rfsaldanha/brpop")
+```
+
+After the CRAN release, the stable version can be installed with:
+
+``` r
+
+install.packages("brpop")
+```
+
+## Quick start
+
+``` r
+
+library(brpop)
+
+# Municipality totals from IBGE, including 2025
+municipal <- mun_pop_totals(source = "ibge")
+municipal_2025 <- municipal[municipal$year == 2025, ]
+
+# State totals from the same source
+state_2025 <- uf_pop_totals(source = "ibge")
+state_2025 <- state_2025[state_2025$year == 2025, ]
+
+# Health-region totals using the 449-region specification
+health_region_2025 <- regsaude_pop_totals(
+  type = "reg_saude_449",
+  source = "ibge"
+)
+health_region_2025 <- health_region_2025[
+  health_region_2025$year == 2025,
+]
+```
+
+The established function names, arguments, source labels, and output
+column names are retained for compatibility with scripts written for
+earlier releases. See the [function
+reference](https://rfsaldanha.github.io/brpop/reference/) for the
+complete API and source-specific year coverage.
+
+## Data provenance
+
+IBGE source workbooks and the reproducible preparation scripts are kept
+in [`data-raw`](https://github.com/rfsaldanha/brpop/tree/main/data-raw).
+The latest official municipal files are available from the [IBGE 2025
+download
+directory](https://ftp.ibge.gov.br/Estimativas_de_Populacao/Estimativas_2025/).
+
+# Package index
+
+## Population datasets
+
+Population estimates datasets available at the package.
+
+- [`datasus_mun_female_pop()`](https://rfsaldanha.github.io/brpop/reference/datasus_mun_female_pop.md)
+  : Municipality yearly female population estimates per age group from
+  2000 to 2021
+- [`datasus_mun_male_pop()`](https://rfsaldanha.github.io/brpop/reference/datasus_mun_male_pop.md)
+  : Municipality yearly male population estimates per age group from
+  2000 to 2021
+- [`datasus2024_mun_female_pop()`](https://rfsaldanha.github.io/brpop/reference/datasus2024_mun_female_pop.md)
+  : Municipality yearly female population estimates per age group from
+  2000 to 2024
+- [`datasus2024_mun_male_pop()`](https://rfsaldanha.github.io/brpop/reference/datasus2024_mun_male_pop.md)
+  : Municipality yearly male population estimates per age group from
+  2000 to 2024
+- [`ufrn_mun_female_pop()`](https://rfsaldanha.github.io/brpop/reference/ufrn_mun_female_pop.md)
+  : Municipality yearly female population estimates per age group, from
+  2010 to 2030
+- [`ufrn_mun_male_pop()`](https://rfsaldanha.github.io/brpop/reference/ufrn_mun_male_pop.md)
+  : Municipality yearly male population estimates per age group, from
+  2010 to 2030
+- [`ibge_pop()`](https://rfsaldanha.github.io/brpop/reference/ibge_pop.md)
+  : Municipality population from IBGE, 2000 to 2025
+
+## Totals
+
+Functions to return the total population per year and geographical unit.
+
+- [`mun_pop_totals()`](https://rfsaldanha.github.io/brpop/reference/mun_pop_totals.md)
+  : Municipality yearly population totals
+- [`regsaude_pop_totals()`](https://rfsaldanha.github.io/brpop/reference/regsaude_pop_totals.md)
+  : Health region yearly total population estimates
+- [`uf_pop_totals()`](https://rfsaldanha.github.io/brpop/reference/uf_pop_totals.md)
+  : UF yearly population totals
+
+## Totals by sex
+
+Functions to return the total population per year, geographical unit and
+sex.
+
+- [`mun_female_pop_totals()`](https://rfsaldanha.github.io/brpop/reference/mun_female_pop_totals.md)
+  : Municipality yearly female population estimate totals
+- [`mun_male_pop_totals()`](https://rfsaldanha.github.io/brpop/reference/mun_male_pop_totals.md)
+  : Municipality yearly male population estimate totals
+- [`regsaude_female_pop_totals()`](https://rfsaldanha.github.io/brpop/reference/regsaude_female_pop_totals.md)
+  : Health region yearly female population estimate totals
+- [`regsaude_male_pop_totals()`](https://rfsaldanha.github.io/brpop/reference/regsaude_male_pop_totals.md)
+  : Health region yearly male population estimate totals
+- [`uf_female_pop_totals()`](https://rfsaldanha.github.io/brpop/reference/uf_female_pop_totals.md)
+  : UF yearly female population estimate totals
+- [`uf_male_pop_totals()`](https://rfsaldanha.github.io/brpop/reference/uf_male_pop_totals.md)
+  : UF yearly male population estimate totals
+
+## Totals by age group
+
+Functions to return the total population per year, geographical unit and
+age group.
+
+- [`mun_pop_age()`](https://rfsaldanha.github.io/brpop/reference/mun_pop_age.md)
+  : Municipality yearly population estimates per age group
+- [`regsaude_pop_age()`](https://rfsaldanha.github.io/brpop/reference/regsaude_pop_age.md)
+  : Health region yearly population estimates per age group
+- [`uf_pop_age()`](https://rfsaldanha.github.io/brpop/reference/uf_pop_age.md)
+  : UF yearly population estimates per age group
+- [`regsaude_female_pop()`](https://rfsaldanha.github.io/brpop/reference/regsaude_female_pop.md)
+  : Health region yearly female population estimates per age group
+- [`regsaude_male_pop()`](https://rfsaldanha.github.io/brpop/reference/regsaude_male_pop.md)
+  : Health region yearly male population estimates per age group
+
+## Totals by sex and age group
+
+Functions to return the total population per year, geographical unit,
+sex and age group.
+
+- [`mun_sex_pop()`](https://rfsaldanha.github.io/brpop/reference/mun_sex_pop.md)
+  : Municipality yearly population estimates per age group and sex
+- [`regsaude_sex_pop()`](https://rfsaldanha.github.io/brpop/reference/regsaude_sex_pop.md)
+  : Health regions yearly population estimates per age group and sex
+- [`uf_sex_pop()`](https://rfsaldanha.github.io/brpop/reference/uf_sex_pop.md)
+  : UF yearly population estimates per age group and sex
+
+## Municipality and health region conversion tables
+
+- [`mun_reg_saude`](https://rfsaldanha.github.io/brpop/reference/mun_reg_saude.md)
+  : Municipality and health region code table
+- [`mun_reg_saude_449`](https://rfsaldanha.github.io/brpop/reference/mun_reg_saude_449.md)
+  : Municipality and health region (449) code table
+
+# Articles
+
+### All vignettes
+
+- [Population estimates
+  comparison](https://rfsaldanha.github.io/brpop/articles/Population-estimates-comparison.md):
