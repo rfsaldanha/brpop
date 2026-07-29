@@ -1,3 +1,24 @@
+# brpop 0.7.0
+
+* Add the revised 2025 IBGE municipal population estimates sent to the TCU on
+  2026-01-13, while preserving all 2000--2024 values and the established
+  `code_muni`, `year`, and `pop` columns.
+* Bundle the compact IBGE series with the package, eliminating Internet access
+  for `ibge_pop()` and all `source = "ibge"` aggregations.
+* Add Boa Esperança do Norte to both health-region lookup tables, assigned to
+  the Teles Pires health region according to the Mato Grosso State Health
+  Department.
+* Remove Internet access from the test suite, addressing the policy issue that
+  led CRAN to archive version 0.6.3.
+* Make remote-data failures consistently return `NULL` with an informative
+  message, as documented in previous releases.
+* Correct health-region aggregation for the seven-digit municipality codes in
+  the DataSUS 2000--2024 series.
+* Revise package metadata, documentation, website configuration, and tests.
+* Keep existing function signatures, defaults, source labels, and output column
+  names for backward compatibility. Dataset loader functions that already had
+  help pages are now also exported.
+
 # brpop 0.6.3
 * Return `NULL` if there is any download related problem.
 

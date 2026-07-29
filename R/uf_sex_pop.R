@@ -29,7 +29,7 @@ uf_sex_pop <- function(source = "datasus") {
     mun_female_pop <- datasus2024_mun_female_pop()
   }
 
-  if (any(is.null(mun_male_pop), is.null(mun_female_pop))) {
+  if (is.null(mun_male_pop) || is.null(mun_female_pop)) {
     return(NULL)
   }
 

@@ -2,7 +2,7 @@
 % Please edit documentation in R/mun_female_pop_totals.R
 \name{mun_female_pop_totals}
 \alias{mun_female_pop_totals}
-\title{Municipality yearly female population estimates totals}
+\title{Municipality yearly female population estimate totals}
 \usage{
 mun_female_pop_totals(source = "datasus")
 }

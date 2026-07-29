@@ -2,31 +2,42 @@
 % Please edit documentation in R/ibge_pop.R
 \name{ibge_pop}
 \alias{ibge_pop}
-\title{Municipality population from IBGE estimates, Census and population inquiries from 2000 to 2024}
+\title{Municipality population from IBGE, 2000 to 2025}
 \usage{
 ibge_pop()
 }
+\value{
+A tibble with one row per municipality and year.
+\describe{
+\item{code_muni}{numeric municipality code with seven digits}
+\item{year}{numeric reference year}
+\item{pop}{numeric population; \code{NA} when the source reports no value}
+}
+}
 \description{
-A dataset containing total population estimates for Brazilian municipalities from IBGE estimates, Census and population inquiries. This dataset does not contain breakdowns by age groups or sex.
+Municipal total population from the Brazilian Institute of Geography and
+Statistics (IBGE), combining censuses, the 2007 population count, and annual
+population estimates. The data do not contain age or sex breakdowns.
 }
 \details{
-The population data was downloaded from the IBGE's SIDRA service and IBGE's FTP server.
+Census values for 2000 and 2010 come from
+\href{https://sidra.ibge.gov.br/tabela/202}{SIDRA table 202}, and 2022 values come
+from \href{https://sidra.ibge.gov.br/tabela/9514}{SIDRA table 9514}. The 2007
+population count comes from
+\href{https://sidra.ibge.gov.br/tabela/793}{SIDRA table 793}.
 
-Population data for the years of 2000 and 2010 were obtained from Census, SIDRA table 202 (\url{https://sidra.ibge.gov.br/Tabela/202}).
+Annual estimates for 2001--2006, 2008--2009, and 2011--2021 come from
+\href{https://sidra.ibge.gov.br/tabela/6579}{SIDRA table 6579}, as updated on
+2024-06-24. Values for 2023 are the population figures sent to the TCU using
+the 2022 Census and 2023 territorial grid, available from the
+\href{https://ftp.ibge.gov.br/Informacoes_Gerais_e_Referencia/Relacao_da_Populacao_dos_Municipios_para_publicacao_no_DOU_em_2023/}{IBGE 2023 download directory}.
+Values for 2024 come from the estimates published in the DOU. Values for
+2025 use the revised estimates sent to the TCU on 2026-01-13. The source
+workbooks are available from the IBGE download directories for
+\href{https://ftp.ibge.gov.br/Estimativas_de_Populacao/Estimativas_2024/}{2024}
+and
+\href{https://ftp.ibge.gov.br/Estimativas_de_Populacao/Estimativas_2025/}{2025}.
 
-Population data for the year of 2022 was obtained from Census, SIDRA table 9514 (\url{https://sidra.ibge.gov.br/Tabela/9514}).
-
-Population data for the year of 2007 was obtained from Population Inquiry, SIDRA table 793 (\url{https://sidra.ibge.gov.br/Tabela/793}).
-
-Population data for the years of 2001 to 2006, 2008, 2009, 2011 to 2021 were obtained from Population Inquiry, SIDRA table 6579 (\url{https://sidra.ibge.gov.br/Tabela/6579}), including update from 2024-06-24.
-
-Population data for 2023 are the IBGE estimates sent to TCU (\url{https://www.ibge.gov.br/estatisticas/sociais/populacao/37734-relacao-da-populacao-dos-municipios-para-publicacao-no-tcu.html}). The values are equal to Census 2022.
-
-Population data for 2024 are the IBGE estimates sent to DOU (\url{https://www.ibge.gov.br/estatisticas/sociais/populacao/9103-estimativas-de-populacao.html}).
-
-\describe{
-\item{code_muni}{municipality 7 digits code}
-\item{year}{year}
-\item{pop}{population}
-}
+\code{ibge_pop()} is bundled with the package and does not require Internet
+access. Its return structure remains compatible with previous releases.
 }

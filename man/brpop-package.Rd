@@ -4,20 +4,26 @@
 \name{brpop-package}
 \alias{brpop}
 \alias{brpop-package}
-\title{brpop: Brazilian Population Estimatives}
+\title{brpop: Brazilian Population Estimates}
 \description{
-Functions to handle and aggregate population estimates for Brazilian municipalities by sex and age groups.
+Provides Brazilian municipality population estimates from official and research sources, with functions to aggregate the data by state, health region, sex, and age group.
 }
 \seealso{
 Useful links:
 \itemize{
   \item \url{https://rfsaldanha.github.io/brpop/}
+  \item \url{https://github.com/rfsaldanha/brpop}
   \item Report bugs at \url{https://github.com/rfsaldanha/brpop/issues}
 }
 
 }
 \author{
 \strong{Maintainer}: Raphael Saldanha \email{raphael.saldanha@fiocruz.br} (\href{https://orcid.org/0000-0003-0652-8466}{ORCID})
+
+Authors:
+\itemize{
+  \item Raphael Saldanha \email{raphael.saldanha@fiocruz.br} (\href{https://orcid.org/0000-0003-0652-8466}{ORCID})
+}
 
 }
 \keyword{internal}

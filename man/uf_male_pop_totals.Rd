@@ -2,7 +2,7 @@
 % Please edit documentation in R/uf_male_pop_totals.R
 \name{uf_male_pop_totals}
 \alias{uf_male_pop_totals}
-\title{UF yearly male population estimates totals}
+\title{UF yearly male population estimate totals}
 \usage{
 uf_male_pop_totals(source = "datasus")
 }

@@ -7,16 +7,16 @@
 ufrn_mun_female_pop()
 }
 \description{
-A dataset containing male population estimates for Brazilian municipalities per age groups from 2010 to 2030.
+A dataset containing female population estimates for Brazilian municipalities by age group from 2010 to 2030.
 }
 \details{
 The estimates were computed by the LEPP laboratory from the Demography Department/UFRN.
 
 \describe{
-\item{code_muni}{municipality 6 digits code}
-\item{year}{year of the estimative}
+\item{code_muni}{municipality 7 digits code}
+\item{year}{year of the estimate}
 \item{age_group}{age group}
-\item{pop}{population estimative}
+\item{pop}{population estimate}
 }
 }
 \references{

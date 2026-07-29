@@ -5,17 +5,21 @@
 \alias{mun_reg_saude}
 \title{Municipality and health region code table}
 \format{
-A tibble with 5,597 rows and 2 variables:
+A tibble with 5,592 rows and 2 variables:
 \describe{
 \item{code_muni}{municipality 6 digits code}
-\item{cod_reg_saude}{health region 4 digits code}
+\item{codi_reg_saude}{health region 4 digits code}
 }
+}
+\source{
+The 2025 assignment of Boa Esperança do Norte to the Teles Pires
+health region is documented by the Mato Grosso State Health Department:
+\url{https://www.saude.mt.gov.br/storage/files/4OzLDdpSPbEGxwtMA0uT9gFIMNGYpgZdZRjEng2X.pdf}.
 }
 \usage{
 mun_reg_saude
 }
 \description{
 A dataset containing municipality and health regions codes.
-#'
 }
 \keyword{datasets}

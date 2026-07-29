@@ -9,9 +9,16 @@ knitr::opts_chunk$set(
 )
 ```
 
-On this article, we will compare the population estimates available at the `brpop` package.
+This article compares the population series available in `brpop`.
 
-Currently, the package present population estimates by municipalities, sex and age groups computed by the DataSUS (Brazilian Health Ministry) old and news estimates and by the UFRN-PPGDEM-LEPP laboratory. The package also have the total estimates computed by IBGE for inter-census years, and population data for Census and population inquiries years.
+DataSUS (the Brazilian Ministry of Health) provides the original 2000--2021
+series and the revised 2000--2024 series by municipality, sex, and age group.
+UFRN-PPGDem-LEPP provides projections from 2010 to 2030 at the same level of
+detail. The IBGE series combines census, population-count, and annual-estimate
+values for municipality totals from 2000 to 2025.
+
+The sources use different methods and should not be treated as interchangeable.
+The plots below make their levels and trends easier to compare.
 
 ```{r setup, message=FALSE}
 library(dplyr)
@@ -258,4 +265,3 @@ bind_rows(datasus_pop_mun, ufrn_pop_mun, ibge_pop_mun, datasus2024_pop_mun) |>
 ```{r}
 sessionInfo()
 ```
-

@@ -3,7 +3,7 @@
 #' This function provides a tibble containing total population estimates for Brazilian health regions.
 #'
 #' @param type character. 'standard' or 'reg_saude_449'
-#' @param source character. `datasus` for Brazilian Health Ministry old estimates (2000 to 2021), `datasus2024` for Brazilian Health Ministry new estimates (2000 to 2024), `ufrn` for UFRN-DEM-LEPP estimates (2010 to 2030), or `ibge` for IBGE estimates (2000 to 2022).
+#' @param source character. `datasus` for Brazilian Health Ministry old estimates (2000 to 2021), `datasus2024` for Brazilian Health Ministry new estimates (2000 to 2024), `ufrn` for UFRN-DEM-LEPP estimates (2010 to 2030), or `ibge` for IBGE data (2000 to 2025).
 #'
 #' @returns A tibble.
 #' @seealso [regsaude_male_pop], [regsaude_female_pop], [ibge_pop].
@@ -11,31 +11,39 @@
 #' @importFrom rlang .data
 #' @export
 
-regsaude_pop_totals <- function(type = "standard", source = "datasus"){
+regsaude_pop_totals <- function(type = "standard", source = "datasus") {
   # Assertions
   checkmate::assert_choice(x = type, choices = c("standard", "reg_saude_449"))
   checkmate::assert_choice(x = source, choices = c("datasus", "ufrn", "ibge", "datasus2024"))
 
-  if(source == "datasus" | source == "datasus2024" | source == "ufrn"){
-    res <- dplyr::bind_rows(regsaude_male_pop_totals(type = type, source = source),
-                          regsaude_female_pop_totals(type = type, source = source)) %>%
+  if (source %in% c("datasus", "datasus2024", "ufrn")) {
+    male <- regsaude_male_pop_totals(type = type, source = source)
+    female <- regsaude_female_pop_totals(type = type, source = source)
+
+    if (is.null(male) || is.null(female)) {
+      return(NULL)
+    }
+
+    res <- dplyr::bind_rows(male, female) %>%
       dtplyr::lazy_dt() %>%
       dplyr::group_by(.data$codi_reg_saude, .data$year) %>%
       dplyr::summarise(pop = sum(.data$pop)) %>%
       dplyr::ungroup() %>%
       dplyr::arrange(.data$codi_reg_saude, .data$year) %>%
       tibble::as_tibble()
-  } else if(source == "ibge"){
-    if(type == "standard"){
+  } else if (source == "ibge") {
+    if (type == "standard") {
       tmp <- ibge_pop() %>%
         dplyr::mutate(code_muni = as.numeric(substr(.data$code_muni, 0, 6))) %>%
         dplyr::left_join(brpop::mun_reg_saude,
-                              by = "code_muni")
-    } else if(type == "reg_saude_449"){
+          by = "code_muni"
+        )
+    } else if (type == "reg_saude_449") {
       tmp <- ibge_pop() %>%
         dplyr::mutate(code_muni = as.numeric(substr(.data$code_muni, 0, 6))) %>%
         dplyr::left_join(brpop::mun_reg_saude_449,
-                              by = "code_muni")
+          by = "code_muni"
+        )
     }
 
     res <- tmp %>%
@@ -46,7 +54,6 @@ regsaude_pop_totals <- function(type = "standard", source = "datasus"){
       dplyr::arrange(.data$codi_reg_saude, .data$year) %>%
       tibble::as_tibble()
   }
-
 
   return(res)
 }

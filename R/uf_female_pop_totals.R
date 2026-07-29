@@ -1,4 +1,4 @@
-#' UF yearly female population estimates totals
+#' UF yearly female population estimate totals
 #'
 #' This function provides a tibble containing female population estimates for Brazilian UFs ("Unidades Federativas") totals.
 #'

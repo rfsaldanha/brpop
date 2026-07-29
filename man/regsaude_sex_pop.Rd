@@ -15,7 +15,8 @@ regsaude_sex_pop(type = "standard", source = "datasus")
 A tibble.
 }
 \description{
-This function binds UF male and female datasets (\code{uf_male_pop} and \code{uf_female_pop}), aggregates estimatives by health regions and includes a new variable called 'sex'.
+This function combines male and female health-region estimates and includes
+a variable named \code{sex}.
 }
 \seealso{
 \link{regsaude_male_pop}, \link{regsaude_female_pop}.

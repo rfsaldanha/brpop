@@ -1,36 +1,43 @@
-#' Municipality population from IBGE estimates, Census and population inquiries from 2000 to 2024
+#' Municipality population from IBGE, 2000 to 2025
 #'
-#' A dataset containing total population estimates for Brazilian municipalities from IBGE estimates, Census and population inquiries. This dataset does not contain breakdowns by age groups or sex.
+#' Municipal total population from the Brazilian Institute of Geography and
+#' Statistics (IBGE), combining censuses, the 2007 population count, and annual
+#' population estimates. The data do not contain age or sex breakdowns.
 #'
-#' The population data was downloaded from the IBGE's SIDRA service and IBGE's FTP server.
+#' Census values for 2000 and 2010 come from
+#' [SIDRA table 202](https://sidra.ibge.gov.br/tabela/202), and 2022 values come
+#' from [SIDRA table 9514](https://sidra.ibge.gov.br/tabela/9514). The 2007
+#' population count comes from
+#' [SIDRA table 793](https://sidra.ibge.gov.br/tabela/793).
 #'
-#' Population data for the years of 2000 and 2010 were obtained from Census, SIDRA table 202 (<https://sidra.ibge.gov.br/Tabela/202>).
+#' Annual estimates for 2001--2006, 2008--2009, and 2011--2021 come from
+#' [SIDRA table 6579](https://sidra.ibge.gov.br/tabela/6579), as updated on
+#' 2024-06-24. Values for 2023 are the population figures sent to the TCU using
+#' the 2022 Census and 2023 territorial grid, available from the
+#' [IBGE 2023 download directory](https://ftp.ibge.gov.br/Informacoes_Gerais_e_Referencia/Relacao_da_Populacao_dos_Municipios_para_publicacao_no_DOU_em_2023/).
+#' Values for 2024 come from the estimates published in the DOU. Values for
+#' 2025 use the revised estimates sent to the TCU on 2026-01-13. The source
+#' workbooks are available from the IBGE download directories for
+#' [2024](https://ftp.ibge.gov.br/Estimativas_de_Populacao/Estimativas_2024/)
+#' and
+#' [2025](https://ftp.ibge.gov.br/Estimativas_de_Populacao/Estimativas_2025/).
 #'
-#' Population data for the year of 2022 was obtained from Census, SIDRA table 9514 (<https://sidra.ibge.gov.br/Tabela/9514>).
+#' `ibge_pop()` is bundled with the package and does not require Internet
+#' access. Its return structure remains compatible with previous releases.
 #'
-#' Population data for the year of 2007 was obtained from Population Inquiry, SIDRA table 793 (<https://sidra.ibge.gov.br/Tabela/793>).
-#'
-#' Population data for the years of 2001 to 2006, 2008, 2009, 2011 to 2021 were obtained from Population Inquiry, SIDRA table 6579 (<https://sidra.ibge.gov.br/Tabela/6579>), including update from 2024-06-24.
-#'
-#' Population data for 2023 are the IBGE estimates sent to TCU (<https://www.ibge.gov.br/estatisticas/sociais/populacao/37734-relacao-da-populacao-dos-municipios-para-publicacao-no-tcu.html>). The values are equal to Census 2022.
-#'
-#' Population data for 2024 are the IBGE estimates sent to DOU (<https://www.ibge.gov.br/estatisticas/sociais/populacao/9103-estimativas-de-populacao.html>).
-#'
+#' @returns A tibble with one row per municipality and year.
 #' \describe{
-#'   \item{code_muni}{municipality 7 digits code}
-#'   \item{year}{year}
-#'   \item{pop}{population}
+#'   \item{code_muni}{numeric municipality code with seven digits}
+#'   \item{year}{numeric reference year}
+#'   \item{pop}{numeric population; `NA` when the source reports no value}
 #' }
+#' @export
 ibge_pop <- function() {
-  path <- tryCatch(
-    {
-      zendown::zen_file(deposit_id = zenodo_deposit, file_name = "ibge_pop.rds")
-    },
-    error = function(cond) {
-      message(zendown_error_message)
-      message(conditionMessage(cond))
-    }
-  )
+  path <- system.file("extdata", "ibge_pop.rds", package = "brpop")
+
+  if (!nzchar(path)) {
+    stop("Bundled IBGE population data were not found.", call. = FALSE)
+  }
 
   readRDS(file = path)
 }

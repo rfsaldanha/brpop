@@ -11,13 +11,13 @@ regsaude_pop_age(type = "standard", source = "datasus", sex = "all")
 
 \item{source}{character. \code{datasus} for Brazilian Health Ministry old estimates (2000 to 2021), \code{datasus2024} for Brazilian Health Ministry new estimates (2000 to 2024), or \code{ufrn} for UFRN-DEM-LEPP estimates (2010 to 2030).}
 
-\item{sex}{character. \code{all} for all population, \code{male} for male population, \code{female} for female population. Defaults for \code{all}.}
+\item{sex}{character. \code{all} for all population, \code{male} for male population, \code{female} for female population. Defaults to \code{all}.}
 }
 \value{
 A tibble.
 }
 \description{
-This function provides a tibble containing population estimates for Brazilian health regions per age groups.
+This function provides a tibble containing population estimates for Brazilian health regions by age group.
 }
 \seealso{
 \link{regsaude_male_pop}, \link{regsaude_female_pop}.

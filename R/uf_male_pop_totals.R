@@ -1,4 +1,4 @@
-#' UF yearly male population estimates totals
+#' UF yearly male population estimate totals
 #'
 #' This function provides a tibble containing male population estimates for Brazilian UFs ("Unidades Federativas") totals.
 #'

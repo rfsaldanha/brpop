@@ -2,7 +2,7 @@
 % Please edit documentation in R/regsaude_female_pop_totals.R
 \name{regsaude_female_pop_totals}
 \alias{regsaude_female_pop_totals}
-\title{Health region yearly female population estimates totals}
+\title{Health region yearly female population estimate totals}
 \usage{
 regsaude_female_pop_totals(type = "standard", source = "datasus")
 }

@@ -15,7 +15,7 @@ regsaude_male_pop(type = "standard", source = "datasus")
 A tibble.
 }
 \description{
-This function provides a tibble containing male population estimates for Brazilian health regions per age groups.
+This function provides a tibble containing male population estimates for Brazilian health regions by age group.
 }
 \seealso{
 \link{datasus_mun_male_pop}, \link{ufrn_mun_male_pop}.

@@ -15,7 +15,7 @@ regsaude_female_pop(type = "standard", source = "datasus")
 A tibble.
 }
 \description{
-This function provides a tibble containing female population estimates for Brazilian health regions per age groups.
+This function provides a tibble containing female population estimates for Brazilian health regions by age group.
 }
 \seealso{
 \link{datasus_mun_female_pop}, \link{ufrn_mun_female_pop}.

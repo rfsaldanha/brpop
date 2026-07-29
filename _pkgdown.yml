@@ -1,11 +1,20 @@
 url: https://rfsaldanha.github.io/brpop/
+title: brpop
+description: Brazilian municipality population estimates and aggregation tools.
 template:
   bootstrap: 5
   params:
     ganalytics: G-2M7VLSRDCB
 navbar:
   structure:
-    right: github
+    left: [intro, reference, articles, news]
+    right: [search, github]
+  components:
+    articles:
+      text: Articles
+      menu:
+      - text: Comparing population-estimate sources
+        href: articles/Population-estimates-comparison.html
 reference:
 - title: Population datasets
   desc: Population estimates datasets available at the package.
@@ -52,4 +61,3 @@ reference:
   contents:
   - mun_reg_saude
   - mun_reg_saude_449
-

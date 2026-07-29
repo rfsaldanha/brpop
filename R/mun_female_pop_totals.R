@@ -1,4 +1,4 @@
-#' Municipality yearly female population estimates totals
+#' Municipality yearly female population estimate totals
 #'
 #' This function provides a tibble containing female population estimates for Brazilian municipalities totals.
 #'

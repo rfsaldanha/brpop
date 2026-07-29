@@ -2,10 +2,11 @@
 #'
 #' See \code{magrittr::\link[magrittr:pipe]{\%>\%}} for details.
 #'
-#' @name %>%
+#' @name pipe
 #' @rdname pipe
+#' @aliases %>%
 #' @keywords internal
-#' @export
+#' @export %>%
 #' @importFrom magrittr %>%
 #' @usage lhs \%>\% rhs
 #' @param lhs A value or the magrittr placeholder.

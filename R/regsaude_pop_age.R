@@ -1,10 +1,10 @@
 #' Health region yearly population estimates per age group
 #'
-#' This function provides a tibble containing population estimates for Brazilian health regions per age groups.
+#' This function provides a tibble containing population estimates for Brazilian health regions by age group.
 #'
 #' @param type character. 'standard' or 'reg_saude_449'
 #' @param source character. `datasus` for Brazilian Health Ministry old estimates (2000 to 2021), `datasus2024` for Brazilian Health Ministry new estimates (2000 to 2024), or `ufrn` for UFRN-DEM-LEPP estimates (2010 to 2030).
-#' @param sex character. `all` for all population, `male` for male population, `female` for female population. Defaults for `all`.
+#' @param sex character. `all` for all population, `male` for male population, `female` for female population. Defaults to `all`.
 #'
 #' @returns A tibble.
 #' @seealso [regsaude_male_pop], [regsaude_female_pop].
@@ -27,14 +27,22 @@ regsaude_pop_age <- function(
 
   # All population or by sex
   if (sex == "all") {
-    res <- dplyr::bind_rows(
-      regsaude_male_pop(type = type, source = source),
-      regsaude_female_pop(type = type, source = source)
-    )
+    male <- regsaude_male_pop(type = type, source = source)
+    female <- regsaude_female_pop(type = type, source = source)
+
+    if (is.null(male) || is.null(female)) {
+      return(NULL)
+    }
+
+    res <- dplyr::bind_rows(male, female)
   } else if (sex == "male") {
     res <- regsaude_male_pop(type = type, source = source)
   } else if (sex == "female") {
     res <- regsaude_female_pop(type = type, source = source)
+  }
+
+  if (is.null(res)) {
+    return(NULL)
   }
 
   # Summarise
